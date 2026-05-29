@@ -31,6 +31,14 @@ EVENT_KEYWORDS = [
 
 MORNING_EVENTS = {"申购日", "上市日"}
 FULL_DAY_EVENTS = {"最后交易日", "最后转股日", "强赎", "下修股东会"}
+EVENT_UID_TYPES = {
+    "申购日": "subscribe",
+    "上市日": "list",
+    "最后交易日": "last-trade",
+    "最后转股日": "last-convert",
+    "强赎": "force-redeem",
+    "下修股东会": "reset-meeting",
+}
 
 HEADERS = {
     "User-Agent": (
@@ -166,7 +174,8 @@ def build_event(item: dict[str, Any]) -> Event:
     event.name = item["title"]
     event.begin = begin
     event.end = end
-    event.uid = f"{item.get('id') or item['code']}-{item['keyword']}-{item['date'].isoformat()}@bond-calendar"
+    uid_type = EVENT_UID_TYPES.get(item["keyword"], item["keyword"])
+    event.uid = f"{item['code']}-{uid_type}-{item['date'].isoformat()}@bond-calendar"
     event.url = detail_url
     event.description = "\n".join(
         part
@@ -197,12 +206,55 @@ def build_calendar(items: list[dict[str, Any]]) -> Calendar:
     return calendar
 
 
-def write_calendar(calendar: Calendar, output_file: Path = OUTPUT_FILE) -> None:
-    tmp_file = output_file.with_suffix(output_file.suffix + ".tmp")
+def stable_calendar_text(calendar: Calendar) -> str:
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore", category=FutureWarning, module=r"ics\.component")
         serialized = calendar.serialize()
-    tmp_file.write_text(serialized, encoding="utf-8")
+    return sort_event_blocks(serialized)
+
+
+def sort_event_blocks(serialized: str) -> str:
+    prefix: list[str] = []
+    suffix: list[str] = []
+    blocks: list[list[str]] = []
+    current_block: list[str] | None = None
+    seen_event = False
+
+    for line in serialized.splitlines(keepends=True):
+        marker = line.strip()
+        if marker == "BEGIN:VEVENT":
+            current_block = [line]
+            seen_event = True
+            continue
+        if current_block is not None:
+            current_block.append(line)
+            if marker == "END:VEVENT":
+                blocks.append(current_block)
+                current_block = None
+            continue
+        if seen_event:
+            suffix.append(line)
+        else:
+            prefix.append(line)
+
+    sorted_event_lines = [line for block in sorted(blocks, key=event_block_sort_key) for line in block]
+    return "".join(prefix + sorted_event_lines + suffix)
+
+
+def event_block_sort_key(block: list[str]) -> tuple[str, str, str]:
+    fields: dict[str, str] = {}
+    for line in block:
+        if ":" not in line:
+            continue
+        key, value = line.strip().split(":", 1)
+        if key in {"DTSTART", "SUMMARY", "UID"}:
+            fields[key] = value
+    return (fields.get("DTSTART", ""), fields.get("SUMMARY", ""), fields.get("UID", ""))
+
+
+def write_calendar(calendar: Calendar, output_file: Path = OUTPUT_FILE) -> None:
+    tmp_file = output_file.with_suffix(output_file.suffix + ".tmp")
+    tmp_file.write_text(stable_calendar_text(calendar), encoding="utf-8")
     tmp_file.replace(output_file)
 
 
