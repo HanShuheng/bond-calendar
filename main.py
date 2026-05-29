@@ -23,21 +23,11 @@ TIMEZONE = ZoneInfo("Asia/Shanghai")
 EVENT_KEYWORDS = [
     "申购日",
     "上市日",
-    "最后交易日",
-    "最后转股日",
-    "强赎",
-    "下修股东会",
 ]
 
-MORNING_EVENTS = {"申购日", "上市日"}
-FULL_DAY_EVENTS = {"最后交易日", "最后转股日", "强赎", "下修股东会"}
 EVENT_UID_TYPES = {
     "申购日": "subscribe",
     "上市日": "list",
-    "最后交易日": "last-trade",
-    "最后转股日": "last-convert",
-    "强赎": "force-redeem",
-    "下修股东会": "reset-meeting",
 }
 
 HEADERS = {
@@ -143,16 +133,8 @@ def filter_bond_events(raw_events: list[dict[str, Any]]) -> list[dict[str, Any]]
 
 
 def event_time_range(event_date: date, keyword: str) -> tuple[datetime, datetime]:
-    if keyword in MORNING_EVENTS:
-        begin_time = clock_time(9, 30)
-        end_time = clock_time(11, 30)
-    elif keyword in FULL_DAY_EVENTS:
-        begin_time = clock_time(9, 30)
-        end_time = clock_time(15, 0)
-    else:
-        begin_time = clock_time(9, 30)
-        end_time = clock_time(15, 0)
-
+    begin_time = clock_time(9, 30)
+    end_time = clock_time(11, 30)
     begin = datetime.combine(event_date, begin_time, tzinfo=TIMEZONE)
     end = datetime.combine(event_date, end_time, tzinfo=TIMEZONE)
     return begin, end
@@ -188,10 +170,10 @@ def build_event(item: dict[str, Any]) -> Event:
         if part
     )
 
-    event.alarms.append(DisplayAlarm(trigger=timedelta(days=-1)))
-    event.alarms.append(DisplayAlarm(trigger=timedelta(minutes=-30)))
+    event.alarms.append(DisplayAlarm(trigger=timedelta(days=-1), display_text=item["title"]))
+    event.alarms.append(DisplayAlarm(trigger=timedelta(minutes=-30), display_text=item["title"]))
     if item["keyword"] == "申购日":
-        event.alarms.append(DisplayAlarm(trigger=timedelta(minutes=90)))
+        event.alarms.append(DisplayAlarm(trigger=timedelta(minutes=90), display_text=item["title"]))
 
     return event
 
