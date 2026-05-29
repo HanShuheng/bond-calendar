@@ -44,15 +44,29 @@ kzz.ics
 grep -n "BEGIN:VCALENDAR\\|BEGIN:VEVENT\\|SUMMARY" kzz.ics | head -40
 ```
 
-## 日历订阅
+本地规则测试：
 
-如果把项目发布到 GitHub，并启用 GitHub Actions 自动更新，可以使用 Raw 文件地址订阅：
-
-```text
-https://raw.githubusercontent.com/<owner>/<repo>/main/kzz.ics
+```bash
+python -m unittest discover -s tests
 ```
 
-把 `<owner>` 和 `<repo>` 替换成你的 GitHub 用户名和仓库名。若默认分支不是 `main`，请替换为实际分支名。
+## 日历订阅
+
+推荐使用 GitHub Pages 地址订阅：
+
+```text
+https://hanshuheng.github.io/bond-calendar/kzz.ics
+```
+
+如果日历软件不接受 `https://`，可以改用 `webcal://`：
+
+```text
+webcal://hanshuheng.github.io/bond-calendar/kzz.ics
+```
+
+请使用“订阅日历”，不要反复下载并导入 `.ics` 文件。订阅会随着远端 `kzz.ics` 自动更新；导入只是静态复制，后续不会自动同步，也更容易产生重复事件。
+
+`raw.githubusercontent.com` 在部分网络环境下可能超时，不作为首选订阅地址。
 
 ## GitHub Actions 自动更新
 
@@ -60,9 +74,12 @@ https://raw.githubusercontent.com/<owner>/<repo>/main/kzz.ics
 
 - 支持手动触发 `workflow_dispatch`。
 - 每天 UTC 23:00 自动运行，对应北京时间每天 07:00。
+- 运行 `python -m unittest discover -s tests` 检查筛选、提醒和 UID 规则。
 - 运行 `python main.py` 生成 `kzz.ics`。
 - 只在 `kzz.ics` 有变化时提交。
 - 提交时只执行 `git add kzz.ics`。
+
+仓库已启用 GitHub Pages，从 `main` 分支根目录发布，因此 `kzz.ics` 更新后会通过 Pages 地址提供订阅。
 
 ## 数据来源与风险说明
 
