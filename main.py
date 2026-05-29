@@ -170,10 +170,12 @@ def build_event(item: dict[str, Any]) -> Event:
         if part
     )
 
-    event.alarms.append(DisplayAlarm(trigger=timedelta(days=-1), display_text=item["title"]))
-    event.alarms.append(DisplayAlarm(trigger=timedelta(minutes=-30), display_text=item["title"]))
     if item["keyword"] == "申购日":
-        event.alarms.append(DisplayAlarm(trigger=timedelta(minutes=90), display_text=item["title"]))
+        event.alarms.append(DisplayAlarm(trigger=timedelta(minutes=30), display_text=item["title"]))
+        event.alarms.append(DisplayAlarm(trigger=timedelta(hours=3), display_text=item["title"]))
+    else:
+        event.alarms.append(DisplayAlarm(trigger=timedelta(days=-1), display_text=item["title"]))
+        event.alarms.append(DisplayAlarm(trigger=timedelta(minutes=-30), display_text=item["title"]))
 
     return event
 
