@@ -133,10 +133,8 @@ def filter_bond_events(raw_events: list[dict[str, Any]]) -> list[dict[str, Any]]
 
 
 def event_time_range(event_date: date, keyword: str) -> tuple[datetime, datetime]:
-    begin_time = clock_time(9, 30)
-    end_time = clock_time(11, 30)
-    begin = datetime.combine(event_date, begin_time, tzinfo=TIMEZONE)
-    end = datetime.combine(event_date, end_time, tzinfo=TIMEZONE)
+    begin = datetime.combine(event_date, clock_time(9, 30), tzinfo=TIMEZONE)
+    end = begin + timedelta(minutes=5)
     return begin, end
 
 
