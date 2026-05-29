@@ -1,5 +1,42 @@
-.venv/
+# Python bytecode/cache
 __pycache__/
 *.py[cod]
-.DS_Store
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python packaging/build output
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Test and coverage output
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local environment/secrets
+.env
+.env.*
+!.env.example
+
+# Logs and temporary files
+*.log
+*.tmp
 kzz.ics.tmp
+
+# macOS/editor files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
