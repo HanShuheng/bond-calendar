@@ -30,6 +30,19 @@ EVENT_UID_TYPES = {
     "上市日": "list",
 }
 
+EVENT_START_TIME = clock_time(9, 30)
+EVENT_DURATION = timedelta(minutes=5)
+ALARM_RULES = {
+    "申购日": (
+        timedelta(minutes=30),  # 10:00
+        timedelta(hours=3),  # 12:30
+    ),
+    "上市日": (
+        timedelta(days=-1),
+        timedelta(minutes=-30),  # 09:00
+    ),
+}
+
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -133,8 +146,8 @@ def filter_bond_events(raw_events: list[dict[str, Any]]) -> list[dict[str, Any]]
 
 
 def event_time_range(event_date: date, keyword: str) -> tuple[datetime, datetime]:
-    begin = datetime.combine(event_date, clock_time(9, 30), tzinfo=TIMEZONE)
-    end = begin + timedelta(minutes=5)
+    begin = datetime.combine(event_date, EVENT_START_TIME, tzinfo=TIMEZONE)
+    end = begin + EVENT_DURATION
     return begin, end
 
 
@@ -168,21 +181,21 @@ def build_event(item: dict[str, Any]) -> Event:
         if part
     )
 
-    if item["keyword"] == "申购日":
-        event.alarms.append(DisplayAlarm(trigger=timedelta(minutes=30), display_text=item["title"]))
-        event.alarms.append(DisplayAlarm(trigger=timedelta(hours=3), display_text=item["title"]))
-    else:
-        event.alarms.append(DisplayAlarm(trigger=timedelta(days=-1), display_text=item["title"]))
-        event.alarms.append(DisplayAlarm(trigger=timedelta(minutes=-30), display_text=item["title"]))
+    for trigger in ALARM_RULES.get(item["keyword"], ()):
+        event.alarms.append(DisplayAlarm(trigger=trigger, display_text=item["title"]))
 
     return event
+
+
+def sorted_events(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return sorted(items, key=lambda event: (event["date"], event["code"], event["title"]))
 
 
 def build_calendar(items: list[dict[str, Any]]) -> Calendar:
     calendar = Calendar()
     calendar.creator = "bond-calendar"
 
-    for item in sorted(items, key=lambda event: (event["date"], event["code"], event["title"])):
+    for item in sorted_events(items):
         calendar.events.add(build_event(item))
 
     return calendar
@@ -240,6 +253,15 @@ def write_calendar(calendar: Calendar, output_file: Path = OUTPUT_FILE) -> None:
     tmp_file.replace(output_file)
 
 
+def print_event_summary(items: list[dict[str, Any]]) -> None:
+    if not items:
+        return
+
+    print("Matched bond events:")
+    for item in sorted_events(items):
+        print(f"- {item['date'].isoformat()} {item['code']} {item['title']}")
+
+
 def main() -> int:
     raw_events = fetch_calendar_data()
     if raw_events is None:
@@ -252,6 +274,7 @@ def main() -> int:
     calendar = build_calendar(matched_events)
     write_calendar(calendar)
     print(f"Fetched {len(raw_events)} raw events, wrote {len(matched_events)} matched events to {OUTPUT_FILE}.")
+    print_event_summary(matched_events)
     return 0
 
 
