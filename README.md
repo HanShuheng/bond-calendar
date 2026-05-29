@@ -81,6 +81,28 @@ webcal://hanshuheng.github.io/bond-calendar/kzz.ics
 
 仓库已启用 GitHub Pages，从 `main` 分支根目录发布，因此 `kzz.ics` 更新后会通过 Pages 地址提供订阅。
 
+## 同步到 Gitee
+
+如果所在网络访问 GitHub 或 GitHub Pages 不稳定，可以把仓库同步到 Gitee，再使用 Gitee raw 地址订阅：
+
+```text
+https://gitee.com/<你的Gitee用户名>/bond-calendar/raw/main/kzz.ics
+```
+
+推荐方式是继续让 GitHub Actions 负责每天生成 `kzz.ics`，然后自动推送一份到 Gitee。配置步骤：
+
+1. 在 Gitee 新建一个空仓库，例如 `bond-calendar`。不要初始化 README，避免第一次推送出现非快进冲突。
+2. 在 Gitee 生成私人令牌，至少需要仓库读写权限。
+3. 到 GitHub 仓库的 `Settings -> Secrets and variables -> Actions` 添加 3 个 Repository secrets：
+
+```text
+GITEE_USERNAME  你的 Gitee 用户名
+GITEE_TOKEN     你的 Gitee 私人令牌
+GITEE_REPO      bond-calendar
+```
+
+配置完成后，GitHub Actions 每次运行都会在更新 GitHub 后同步到 Gitee。若这 3 个 secrets 没有配置，Gitee 同步步骤会自动跳过，不影响 GitHub 更新。
+
 ## 数据来源与风险说明
 
 数据来源为集思录可转债日历接口：
