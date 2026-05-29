@@ -13,7 +13,7 @@ DESCRIPTION:【申购日】盛德转债
 TRIGGER:PT3H
 END:VALARM
 DESCRIPTION:【申购日】盛德转债\n转债代码: 123270\n集思录详情页: https://www.jisilu.cn/data/convert_bond_detail/123270\n转债代码:123270\n申购代码:370881\n配售代码:380881
-DTEND:20260601T033000Z
+DTEND:20260601T013500Z
 DTSTART:20260601T013000Z
 SUMMARY:【申购日】盛德转债
 UID:123270-subscribe-2026-06-01@bond-calendar
@@ -31,7 +31,7 @@ DESCRIPTION:【申购日】通合转债
 TRIGGER:PT3H
 END:VALARM
 DESCRIPTION:【申购日】通合转债\n转债代码: 123271\n集思录详情页: https://www.jisilu.cn/data/convert_bond_detail/123271\n转债代码:123271\n申购代码:370491\n配售代码:380491
-DTEND:20260602T033000Z
+DTEND:20260602T013500Z
 DTSTART:20260602T013000Z
 SUMMARY:【申购日】通合转债
 UID:123271-subscribe-2026-06-02@bond-calendar
