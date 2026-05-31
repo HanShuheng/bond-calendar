@@ -73,7 +73,7 @@ webcal://hanshuheng.github.io/bond-calendar/kzz.ics
 `.github/workflows/update-ics.yml` 已配置：
 
 - 支持手动触发 `workflow_dispatch`。
-- 每天 UTC 23:00 自动运行，对应北京时间每天 07:00。
+- 每天 UTC 23:00、01:00、03:00 自动运行，对应北京时间每天 07:00、09:00、11:00；多跑几次可以降低 GitHub 定时任务延迟或漏跑的影响。
 - 运行 `python -m unittest discover -s tests` 检查筛选、提醒和 UID 规则。
 - 运行 `python main.py` 生成 `kzz.ics`。
 - 只在 `kzz.ics` 有变化时提交。

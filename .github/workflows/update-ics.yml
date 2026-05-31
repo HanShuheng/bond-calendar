@@ -3,7 +3,9 @@ name: Update KZZ ICS
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 23 * * *"
+    - cron: "0 23 * * *" # 北京时间 07:00
+    - cron: "0 1 * * *"  # 北京时间 09:00
+    - cron: "0 3 * * *"  # 北京时间 11:00
 
 permissions:
   contents: write
