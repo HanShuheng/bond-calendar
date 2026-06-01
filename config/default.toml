@@ -13,7 +13,7 @@ uid_type = "subscribe"
 alarms = ["PT30M", "PT3H"]
 
 [events.ballot]
-label = "中签公布"
+label = "中签结果公布"
 uid_type = "payment"
 alarms = ["PT1H", "PT3H30M"]
 

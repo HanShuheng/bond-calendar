@@ -40,36 +40,36 @@ END:VEVENT
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【中签公布】盛德转债
+DESCRIPTION:【中签结果公布】盛德转债
 TRIGGER:PT1H
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【中签公布】盛德转债
+DESCRIPTION:【中签结果公布】盛德转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签公布】盛德转债\n代码: 123270\n申购: 370881\n正股: 盛德鑫泰(300881)\n登记: 2026-05-29 | 配售: 3.7058/股\n规模: 4.05亿 | 评级: A+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123270.html
+DESCRIPTION:【中签结果公布】盛德转债\n代码: 123270\n申购: 370881\n正股: 盛德鑫泰(300881)\n登记: 2026-05-29 | 配售: 3.7058/股\n规模: 4.05亿 | 评级: A+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123270.html
 DTEND:20260603T013500Z
 DTSTART:20260603T013000Z
-SUMMARY:【中签公布】盛德转债
+SUMMARY:【中签结果公布】盛德转债
 UID:123270-payment-2026-06-03@bond-calendar
 URL:https://data.eastmoney.com/kzz/detail/123270.html
 END:VEVENT
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【中签公布】通合转债
+DESCRIPTION:【中签结果公布】通合转债
 TRIGGER:PT1H
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【中签公布】通合转债
+DESCRIPTION:【中签结果公布】通合转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签公布】通合转债\n代码: 123271\n申购: 370491\n正股: 通合科技(300491)\n登记: 2026-06-01 | 配售: 2.9377/股\n规模: 5.22亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123271.html
+DESCRIPTION:【中签结果公布】通合转债\n代码: 123271\n申购: 370491\n正股: 通合科技(300491)\n登记: 2026-06-01 | 配售: 2.9377/股\n规模: 5.22亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123271.html
 DTEND:20260604T013500Z
 DTSTART:20260604T013000Z
-SUMMARY:【中签公布】通合转债
+SUMMARY:【中签结果公布】通合转债
 UID:123271-payment-2026-06-04@bond-calendar
 URL:https://data.eastmoney.com/kzz/detail/123271.html
 END:VEVENT

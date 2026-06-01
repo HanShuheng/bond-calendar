@@ -47,7 +47,7 @@ https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_BOND_CB_LIST
 | `SECURITY_NAME_ABBR` | 转债简称 | 生成事件标题 |
 | `CORRECODE` | 申购代码 | 放入申购日事件描述 |
 | `PUBLIC_START_DATE` | 申购日 | 生成“申购日”提醒 |
-| `BOND_START_DATE` | 中签号发布日 | 生成“中签公布”提醒 |
+| `BOND_START_DATE` | 中签号发布日 | 生成“中签结果公布”提醒 |
 | `LISTING_DATE` | 上市日 | 生成“上市日”提醒 |
 | `ONLINE_GENERAL_LWR` | 网上发行中签率 | 数据公布后放入事件描述 |
 | `RATING` | 信用评级 | 放入事件描述，辅助识别风险等级 |
@@ -57,7 +57,7 @@ https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_BOND_CB_LIST
 | 事件 | 日期字段 | 建议标题 |
 |---|---|---|
 | 申购日 | `PUBLIC_START_DATE` | `【申购日】通合转债` |
-| 中签公布 | `BOND_START_DATE` | `【中签公布】通合转债` |
+| 中签结果公布 | `BOND_START_DATE` | `【中签结果公布】通合转债` |
 | 上市日 | `LISTING_DATE` | `【上市日】通合转债` |
 
 ## 字段说明
@@ -100,7 +100,7 @@ https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_BOND_CB_LIST
 
 | 字段 | 含义 | 使用建议 |
 |---|---|---|
-| `BOND_START_DATE` | 中签号发布日 | 核心字段，生成中签公布提醒 |
+| `BOND_START_DATE` | 中签号发布日 | 核心字段，生成中签结果公布提醒 |
 | `ONLINE_GENERAL_LWR` | 网上发行中签率 | 数据公布后可放入描述 |
 | `FIRST_PROFIT` | 每中一签获利估算 | 仅供展示参考，不建议作为提醒依据 |
 | `LISTING_DATE` | 上市日 | 核心字段，生成上市日提醒 |
@@ -150,7 +150,7 @@ https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_BOND_CB_LIST
 |---|---|---|
 | `INTEREST_RATE_EXPLAIN` | 票面利率说明 | 可选展示，不建议放入日历 |
 | `COUPON_IR` | 票面利率字段 | 暂不使用 |
-| `PAY_INTEREST_DAY` | 每年付息日，如 `06-02` | 不是中签公布日期，不建议用于打新提醒 |
+| `PAY_INTEREST_DAY` | 每年付息日，如 `06-02` | 不是中签结果公布日期，不建议用于打新提醒 |
 | `PAYDAYNEW` | 付息日辅助字段 | 暂不使用 |
 | `CASHFLOW_DATE` | 现金流日期 | 暂不使用 |
 | `IB_START_DATE` | 计息区间开始日 | 暂不使用 |
@@ -175,10 +175,10 @@ https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_BOND_CB_LIST
 
 ```text
 PUBLIC_START_DATE -> 申购日
-BOND_START_DATE   -> 中签公布
+BOND_START_DATE   -> 中签结果公布
 LISTING_DATE      -> 上市日
 ```
 
 项目业务层实际接收的是 `subscribe`、`ballot`、`list` 这类标准事件类型。自定义适配器可以完全不使用东方财富字段，只要输出同样的标准事件对象即可。
 
-不要把 `PAY_INTEREST_DAY`、`VALUE_DATE`、`TRANSFER_START_DATE` 等字段误认为中签公布日期；这些字段属于付息、起息或转股生命周期，不是打新流程中的结果查询提醒。
+不要把 `PAY_INTEREST_DAY`、`VALUE_DATE`、`TRANSFER_START_DATE` 等字段误认为中签结果公布日期；这些字段属于付息、起息或转股生命周期，不是打新流程中的结果查询提醒。

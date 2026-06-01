@@ -16,6 +16,7 @@ from ..utils import parse_event_date
 
 JISILU_EVENT_TYPES = {
     "申购日": "subscribe",
+    "中签结果公布": "ballot",
     "中签公布": "ballot",
     "上市日": "list",
 }

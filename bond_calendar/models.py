@@ -8,7 +8,7 @@ from zoneinfo import ZoneInfo
 
 EVENT_LABELS = {
     "subscribe": "申购日",
-    "ballot": "中签公布",
+    "ballot": "中签结果公布",
     "list": "上市日",
 }
 
@@ -57,4 +57,3 @@ class AdapterResult:
     source: str
     raw_count: int
     events: tuple[BondEvent, ...]
-

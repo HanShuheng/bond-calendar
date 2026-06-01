@@ -148,7 +148,7 @@ class CalendarRulesTest(unittest.TestCase):
 
         self.assertEqual(["subscribe", "ballot", "list"], [item.event_type for item in events])
         self.assertIn("SUMMARY:【申购日】通合转债", calendar_text)
-        self.assertIn("SUMMARY:【中签公布】通合转债", calendar_text)
+        self.assertIn("SUMMARY:【中签结果公布】通合转债", calendar_text)
         self.assertIn("SUMMARY:【上市日】通合转债", calendar_text)
         self.assertIn("UID:123271-subscribe-2026-06-02@bond-calendar", calendar_text)
         self.assertIn("UID:123271-payment-2026-06-04@bond-calendar", calendar_text)

@@ -35,7 +35,7 @@
 | `event_type` | 日历标题 |
 |---|---|
 | `subscribe` | `【申购日】xxx转债` |
-| `ballot` | `【中签公布】xxx转债` |
+| `ballot` | `【中签结果公布】xxx转债` |
 | `list` | `【上市日】xxx转债` |
 
 ## 适配器接口
