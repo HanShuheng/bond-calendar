@@ -15,20 +15,32 @@ import requests
 from ics import Calendar, DisplayAlarm, Event
 
 
-CALENDAR_URL = "https://www.jisilu.cn/data/calendar/get_calendar_data/?qtype=CNV"
+JISILU_CALENDAR_URL = "https://www.jisilu.cn/data/calendar/get_calendar_data/?qtype=CNV"
 JISILU_BASE_URL = "https://www.jisilu.cn"
+EASTMONEY_API_URL = "https://datacenter-web.eastmoney.com/api/data/v1/get"
+EASTMONEY_PAGE_URL = "https://data.eastmoney.com/xg/xg/?mkt=kzz"
+EASTMONEY_DETAIL_URL = "https://data.eastmoney.com/kzz/detail/{code}.html"
 OUTPUT_FILE = Path("kzz.ics")
 TIMEZONE = ZoneInfo("Asia/Shanghai")
+EVENT_LOOKBACK_DAYS = 7
 
 EVENT_KEYWORDS = [
     "申购日",
+    "中签公布",
     "上市日",
 ]
 
 EVENT_UID_TYPES = {
     "申购日": "subscribe",
+    "中签公布": "payment",
     "上市日": "list",
 }
+
+EASTMONEY_EVENT_FIELDS = (
+    ("PUBLIC_START_DATE", "申购日"),
+    ("BOND_START_DATE", "中签公布"),
+    ("LISTING_DATE", "上市日"),
+)
 
 EVENT_START_TIME = clock_time(9, 30)
 EVENT_DURATION = timedelta(minutes=5)
@@ -37,13 +49,19 @@ ALARM_RULES = {
         timedelta(minutes=30),  # 10:00
         timedelta(hours=3),  # 12:30
     ),
+    "中签公布": (
+        timedelta(hours=1),  # 10:30
+        timedelta(hours=3, minutes=30),  # 13:00
+    ),
     "上市日": (
         timedelta(days=-1),
-        timedelta(minutes=-30),  # 09:00
+        timedelta(minutes=-5),  # 09:25
+        timedelta(hours=1, minutes=30),  # 11:00
+        timedelta(hours=4),  # 13:30
     ),
 }
 
-HEADERS = {
+JISILU_HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -53,14 +71,97 @@ HEADERS = {
     "Referer": "https://www.jisilu.cn/data/calendar/",
 }
 
+EASTMONEY_HEADERS = {
+    "User-Agent": JISILU_HEADERS["User-Agent"],
+    "Accept": "application/json,text/plain,*/*",
+    "Referer": EASTMONEY_PAGE_URL,
+}
 
-def fetch_calendar_data(retries: int = 3, timeout: int = 15) -> list[dict[str, Any]] | None:
-    """Fetch convertible bond calendar data. Return None on upstream failure."""
+
+def fetch_eastmoney_bond_data(retries: int = 3, timeout: int = 15, page_size: int = 500) -> list[dict[str, Any]] | None:
+    """Fetch convertible bond list data from Eastmoney. Return None on upstream failure."""
     last_error: Exception | None = None
 
     for attempt in range(1, retries + 1):
         try:
-            response = requests.get(CALENDAR_URL, headers=HEADERS, timeout=timeout)
+            rows: list[dict[str, Any]] = []
+            page = 1
+            total_pages = 1
+
+            while page <= total_pages:
+                response = requests.get(
+                    EASTMONEY_API_URL,
+                    headers=EASTMONEY_HEADERS,
+                    params={
+                        "reportName": "RPT_BOND_CB_LIST",
+                        "columns": "ALL",
+                        "source": "WEB",
+                        "client": "WEB",
+                        "pageNumber": str(page),
+                        "pageSize": str(page_size),
+                        "sortColumns": "PUBLIC_START_DATE,SECURITY_CODE",
+                        "sortTypes": "-1,1",
+                    },
+                    timeout=timeout,
+                )
+                response.raise_for_status()
+                payload = response.json()
+                page_rows, total_pages = parse_eastmoney_payload(payload, page_size)
+                rows.extend(page_rows)
+                if not page_rows:
+                    break
+                page += 1
+
+            return rows
+        except (requests.RequestException, json.JSONDecodeError, ValueError) as exc:
+            last_error = exc
+            print(f"Warning: Eastmoney fetch attempt {attempt}/{retries} failed: {exc}", file=sys.stderr)
+            if attempt < retries:
+                time.sleep(2 ** (attempt - 1))
+
+    print(f"Warning: Eastmoney fetch failed: {last_error}", file=sys.stderr)
+    return None
+
+
+def parse_eastmoney_payload(payload: Any, page_size: int) -> tuple[list[dict[str, Any]], int]:
+    if not isinstance(payload, dict):
+        raise ValueError(f"Expected Eastmoney JSON object, got {type(payload).__name__}")
+    if payload.get("success") is not True:
+        raise ValueError(f"Eastmoney response success is not true: {payload.get('message')!r}")
+
+    result = payload.get("result")
+    if not isinstance(result, dict):
+        raise ValueError("Eastmoney response missing result object")
+
+    data = result.get("data")
+    if not isinstance(data, list):
+        raise ValueError("Eastmoney response missing result.data list")
+
+    rows: list[dict[str, Any]] = []
+    for index, item in enumerate(data, start=1):
+        if isinstance(item, dict):
+            rows.append(item)
+        else:
+            print(f"Warning: skip Eastmoney item #{index}, expected object: {item!r}", file=sys.stderr)
+
+    pages = result.get("pages")
+    if isinstance(pages, int) and pages > 0:
+        return rows, pages
+
+    count = result.get("count")
+    if isinstance(count, int) and count > 0:
+        return rows, max(1, (count + page_size - 1) // page_size)
+
+    return rows, 1
+
+
+def fetch_jisilu_calendar_data(retries: int = 3, timeout: int = 15) -> list[dict[str, Any]] | None:
+    """Fetch Jisilu convertible bond calendar data. Return None on upstream failure."""
+    last_error: Exception | None = None
+
+    for attempt in range(1, retries + 1):
+        try:
+            response = requests.get(JISILU_CALENDAR_URL, headers=JISILU_HEADERS, timeout=timeout)
             response.raise_for_status()
             data = response.json()
             if not isinstance(data, list):
@@ -70,16 +171,20 @@ def fetch_calendar_data(retries: int = 3, timeout: int = 15) -> list[dict[str, A
                 if isinstance(item, dict):
                     events.append(item)
                 else:
-                    print(f"Warning: skip item #{index}, expected object: {item!r}", file=sys.stderr)
+                    print(f"Warning: skip Jisilu item #{index}, expected object: {item!r}", file=sys.stderr)
             return events
         except (requests.RequestException, json.JSONDecodeError, ValueError) as exc:
             last_error = exc
-            print(f"Warning: fetch attempt {attempt}/{retries} failed: {exc}", file=sys.stderr)
+            print(f"Warning: Jisilu fetch attempt {attempt}/{retries} failed: {exc}", file=sys.stderr)
             if attempt < retries:
                 time.sleep(2 ** (attempt - 1))
 
     print(f"Warning: upstream calendar fetch failed, keep existing {OUTPUT_FILE}: {last_error}", file=sys.stderr)
     return None
+
+
+def today_in_timezone() -> date:
+    return datetime.now(TIMEZONE).date()
 
 
 def matched_keyword(title: str) -> str | None:
@@ -98,6 +203,35 @@ def parse_event_date(value: Any) -> date | None:
         return None
 
 
+def format_event_date(value: Any) -> str | None:
+    event_date = parse_event_date(value)
+    if event_date is None:
+        return None
+    return event_date.isoformat()
+
+
+def is_empty_value(value: Any) -> bool:
+    return value is None or value == "" or value == "-"
+
+
+def format_percent(value: Any) -> str | None:
+    if is_empty_value(value):
+        return None
+    return f"{value}%"
+
+
+def format_scale(value: Any) -> str | None:
+    if is_empty_value(value):
+        return None
+    return f"{value}亿元"
+
+
+def optional_line(label: str, value: Any) -> str | None:
+    if is_empty_value(value):
+        return None
+    return f"{label}: {value}"
+
+
 def clean_description(value: Any) -> str:
     if not isinstance(value, str):
         return ""
@@ -106,7 +240,73 @@ def clean_description(value: Any) -> str:
     return html.unescape(text).strip()
 
 
-def filter_bond_events(raw_events: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def is_in_event_window(event_date: date, today: date | None = None) -> bool:
+    current_date = today or today_in_timezone()
+    return event_date >= current_date - timedelta(days=EVENT_LOOKBACK_DAYS)
+
+
+def eastmoney_detail_url(code: str) -> str:
+    return EASTMONEY_DETAIL_URL.format(code=code)
+
+
+def eastmoney_description(row: dict[str, Any], detail_url: str) -> str:
+    stock_code = row.get("CONVERT_STOCK_CODE")
+    stock_name = row.get("SECURITY_SHORT_NAME")
+    stock_line = None
+    if not is_empty_value(stock_code) and not is_empty_value(stock_name):
+        stock_line = f"正股: {stock_name}({stock_code})"
+    elif not is_empty_value(stock_code):
+        stock_line = f"正股代码: {stock_code}"
+    elif not is_empty_value(stock_name):
+        stock_line = f"正股简称: {stock_name}"
+
+    lines = [
+        optional_line("申购代码", row.get("CORRECODE")),
+        optional_line("股权登记日", format_event_date(row.get("SECURITY_START_DATE"))),
+        optional_line("每股配售额", row.get("FIRST_PER_PREPLACING")),
+        optional_line("发行规模", format_scale(row.get("ACTUAL_ISSUE_SCALE"))),
+        optional_line("中签率", format_percent(row.get("ONLINE_GENERAL_LWR"))),
+        optional_line("信用评级", row.get("RATING")),
+        stock_line,
+        "数据来源: 东方财富",
+    ]
+    return "\n".join(line for line in lines if line)
+
+
+def build_eastmoney_events(raw_rows: list[dict[str, Any]], today: date | None = None) -> list[dict[str, Any]]:
+    events: list[dict[str, Any]] = []
+
+    for index, row in enumerate(raw_rows, start=1):
+        code = row.get("SECURITY_CODE")
+        name = row.get("SECURITY_NAME_ABBR")
+        if not isinstance(code, str) or not code.strip() or not isinstance(name, str) or not name.strip():
+            print(f"Warning: skip Eastmoney item #{index}, missing SECURITY_CODE/SECURITY_NAME_ABBR: {row!r}", file=sys.stderr)
+            continue
+
+        detail_url = eastmoney_detail_url(code.strip())
+        description = eastmoney_description(row, detail_url)
+
+        for field, keyword in EASTMONEY_EVENT_FIELDS:
+            event_date = parse_event_date(row.get(field))
+            if event_date is None or not is_in_event_window(event_date, today):
+                continue
+            events.append(
+                {
+                    "id": None,
+                    "title": f"【{keyword}】{name.strip()}",
+                    "code": code.strip(),
+                    "date": event_date,
+                    "keyword": keyword,
+                    "description": description,
+                    "url": detail_url,
+                    "source": "东方财富",
+                }
+            )
+
+    return events
+
+
+def filter_jisilu_bond_events(raw_events: list[dict[str, Any]]) -> list[dict[str, Any]]:
     filtered: list[dict[str, Any]] = []
 
     for index, item in enumerate(raw_events, start=1):
@@ -139,10 +339,32 @@ def filter_bond_events(raw_events: list[dict[str, Any]]) -> list[dict[str, Any]]
                 "keyword": keyword,
                 "description": clean_description(item.get("description")),
                 "url": item.get("url"),
+                "source": "集思录",
             }
         )
 
     return filtered
+
+
+def filter_bond_events(raw_events: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return filter_jisilu_bond_events(raw_events)
+
+
+def load_matched_events(today: date | None = None) -> tuple[list[dict[str, Any]], int, str] | None:
+    eastmoney_rows = fetch_eastmoney_bond_data()
+    if eastmoney_rows:
+        eastmoney_events = build_eastmoney_events(eastmoney_rows, today)
+        if eastmoney_events:
+            return eastmoney_events, len(eastmoney_rows), "东方财富"
+        print("Warning: Eastmoney returned no usable calendar events, fallback to Jisilu.", file=sys.stderr)
+    else:
+        print("Warning: Eastmoney returned no raw rows, fallback to Jisilu.", file=sys.stderr)
+
+    jisilu_events = fetch_jisilu_calendar_data()
+    if jisilu_events is None:
+        return None
+
+    return filter_jisilu_bond_events(jisilu_events), len(jisilu_events), "集思录兜底"
 
 
 def event_time_range(event_date: date, keyword: str) -> tuple[datetime, datetime]:
@@ -175,7 +397,7 @@ def build_event(item: dict[str, Any]) -> Event:
         for part in [
             item["title"],
             f"转债代码: {item['code']}",
-            f"集思录详情页: {detail_url}",
+            f"详情页: {detail_url}",
             item.get("description", ""),
         ]
         if part
@@ -263,17 +485,17 @@ def print_event_summary(items: list[dict[str, Any]]) -> None:
 
 
 def main() -> int:
-    raw_events = fetch_calendar_data()
-    if raw_events is None:
+    loaded = load_matched_events()
+    if loaded is None:
         return 0
 
-    matched_events = filter_bond_events(raw_events)
+    matched_events, raw_count, source = loaded
     if not matched_events:
         print("No matched bond events found.")
 
     calendar = build_calendar(matched_events)
     write_calendar(calendar)
-    print(f"Fetched {len(raw_events)} raw events, wrote {len(matched_events)} matched events to {OUTPUT_FILE}.")
+    print(f"Fetched {raw_count} raw events from {source}, wrote {len(matched_events)} matched events to {OUTPUT_FILE}.")
     print_event_summary(matched_events)
     return 0
 
