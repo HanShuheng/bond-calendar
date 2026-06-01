@@ -1,0 +1,49 @@
+[calendar]
+output_file = "kzz.ics"
+timezone = "Asia/Shanghai"
+event_lookback_days = 7
+event_start_time = "09:30"
+event_duration_minutes = 5
+creator = "bond-calendar"
+sources = ["eastmoney", "jisilu"]
+
+[events.subscribe]
+label = "申购日"
+uid_type = "subscribe"
+alarms = ["PT30M", "PT3H"]
+
+[events.ballot]
+label = "中签公布"
+uid_type = "payment"
+alarms = ["PT1H", "PT3H30M"]
+
+[events.list]
+label = "上市日"
+uid_type = "list"
+alarms = ["-P1D", "-PT5M", "PT1H30M", "PT4H"]
+
+[adapters.eastmoney]
+# Built-in adapters can omit "class". Custom adapters may set:
+# class = "my_package.my_adapter:MyAdapter"
+api_url = "https://datacenter-web.eastmoney.com/api/data/v1/get"
+page_url = "https://data.eastmoney.com/xg/xg/?mkt=kzz"
+detail_url = "https://data.eastmoney.com/kzz/detail/{code}.html"
+page_size = 500
+timeout = 15
+retries = 3
+user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+
+[adapters.eastmoney.params]
+reportName = "RPT_BOND_CB_LIST"
+columns = "ALL"
+source = "WEB"
+client = "WEB"
+sortColumns = "PUBLIC_START_DATE,SECURITY_CODE"
+sortTypes = "-1,1"
+
+[adapters.jisilu]
+calendar_url = "https://www.jisilu.cn/data/calendar/get_calendar_data/?qtype=CNV"
+base_url = "https://www.jisilu.cn"
+timeout = 15
+retries = 3
+user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"

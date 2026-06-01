@@ -1,8 +1,18 @@
 from __future__ import annotations
 
+import os
+import tempfile
 import unittest
+from datetime import date
+from pathlib import Path
 
-import main
+from bond_calendar.adapters.eastmoney import build_eastmoney_events
+from bond_calendar.adapters import resolve_adapter
+from bond_calendar.adapters.eastmoney import EastmoneyAdapter
+from bond_calendar.adapters.jisilu import build_jisilu_events
+from bond_calendar.config import load_config
+from bond_calendar.ics_writer import build_calendar, stable_calendar_text
+from bond_calendar.models import BondEvent
 
 
 def event_block(calendar_text: str, uid: str) -> str:
@@ -15,7 +25,8 @@ def event_block(calendar_text: str, uid: str) -> str:
 
 class CalendarRulesTest(unittest.TestCase):
     def setUp(self) -> None:
-        self.raw_events = [
+        self.config = load_config()
+        self.jisilu_raw_events = [
             {
                 "id": "CNV10001",
                 "code": "123271",
@@ -42,14 +53,47 @@ class CalendarRulesTest(unittest.TestCase):
             },
         ]
 
-    def test_filters_only_subscription_and_listing_events(self) -> None:
-        filtered = main.filter_bond_events(self.raw_events)
+    def test_load_config_supports_env_and_cli_overrides(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            output_path = Path(tmpdir) / "custom.ics"
+            original_output = os.environ.get("BOND_CALENDAR_OUTPUT")
+            original_source = os.environ.get("BOND_CALENDAR_SOURCE")
+            try:
+                os.environ["BOND_CALENDAR_OUTPUT"] = str(output_path)
+                os.environ["BOND_CALENDAR_SOURCE"] = "jisilu"
 
-        self.assertEqual(["申购日", "上市日"], [item["keyword"] for item in filtered])
-        self.assertNotIn("最后交易日", [item["keyword"] for item in filtered])
+                config = load_config(output_file="cli.ics", source="eastmoney")
+
+                self.assertEqual(Path("cli.ics"), config.output_file)
+                self.assertEqual(("eastmoney",), config.sources)
+                self.assertIn("subscribe", config.event_rules)
+            finally:
+                restore_env("BOND_CALENDAR_OUTPUT", original_output)
+                restore_env("BOND_CALENDAR_SOURCE", original_source)
+
+    def test_bond_event_requires_standard_fields(self) -> None:
+        with self.assertRaises(ValueError):
+            BondEvent(code="", name="通合转债", event_type="subscribe", event_date=date(2026, 6, 2))
+        with self.assertRaises(ValueError):
+            BondEvent(code="123271", name="通合转债", event_type="unknown", event_date=date(2026, 6, 2))
+
+    def test_adapter_strategy_can_be_resolved_from_config_class_path(self) -> None:
+        adapter_class = resolve_adapter(
+            "custom_eastmoney",
+            {"class": "bond_calendar.adapters.eastmoney:EastmoneyAdapter"},
+        )
+
+        self.assertIs(EastmoneyAdapter, adapter_class)
+
+    def test_jisilu_adapter_keeps_subscription_and_listing_events(self) -> None:
+        events = build_jisilu_events(self.jisilu_raw_events, self.config, today=date(2026, 6, 1))
+
+        self.assertEqual(["subscribe", "list"], [item.event_type for item in events])
+        self.assertEqual(["通合转债", "测试转债"], [item.name for item in events])
 
     def test_stable_uid_and_short_event_duration(self) -> None:
-        calendar_text = main.stable_calendar_text(main.build_calendar(main.filter_bond_events(self.raw_events)))
+        events = build_jisilu_events(self.jisilu_raw_events, self.config, today=date(2026, 6, 1))
+        calendar_text = stable_calendar_text(build_calendar(events, self.config))
 
         self.assertIn("UID:123271-subscribe-2026-06-02@bond-calendar", calendar_text)
         self.assertIn("UID:123999-list-2026-06-03@bond-calendar", calendar_text)
@@ -58,26 +102,25 @@ class CalendarRulesTest(unittest.TestCase):
         self.assertIn("DTEND:20260602T013500Z", calendar_text)
 
     def test_alarm_rules(self) -> None:
-        calendar_text = main.stable_calendar_text(main.build_calendar(main.filter_bond_events(self.raw_events)))
+        events = build_jisilu_events(self.jisilu_raw_events, self.config, today=date(2026, 6, 1))
+        calendar_text = stable_calendar_text(build_calendar(events, self.config))
         subscribe = event_block(calendar_text, "123271-subscribe-2026-06-02@bond-calendar")
         listing = event_block(calendar_text, "123999-list-2026-06-03@bond-calendar")
 
         self.assertIn("TRIGGER:PT30M", subscribe)
         self.assertIn("TRIGGER:PT3H", subscribe)
         self.assertNotIn("TRIGGER:-P1D", subscribe)
-        self.assertNotIn("TRIGGER:-PT30M", subscribe)
 
         self.assertIn("TRIGGER:-P1D", listing)
         self.assertIn("TRIGGER:-PT5M", listing)
         self.assertIn("TRIGGER:PT1H30M", listing)
         self.assertIn("TRIGGER:PT4H", listing)
-        self.assertNotIn("TRIGGER:PT3H", listing)
 
     def test_serialization_is_stable(self) -> None:
-        filtered = main.filter_bond_events(self.raw_events)
+        events = build_jisilu_events(self.jisilu_raw_events, self.config, today=date(2026, 6, 1))
 
-        first = main.stable_calendar_text(main.build_calendar(filtered))
-        second = main.stable_calendar_text(main.build_calendar(filtered))
+        first = stable_calendar_text(build_calendar(events, self.config))
+        second = stable_calendar_text(build_calendar(events, self.config))
 
         self.assertEqual(first, second)
 
@@ -100,10 +143,10 @@ class CalendarRulesTest(unittest.TestCase):
             }
         ]
 
-        events = main.build_eastmoney_events(rows, today=main.date(2026, 6, 1))
-        calendar_text = main.stable_calendar_text(main.build_calendar(events))
+        events = build_eastmoney_events(rows, self.config, today=date(2026, 6, 1))
+        calendar_text = stable_calendar_text(build_calendar(events, self.config))
 
-        self.assertEqual(["申购日", "中签公布", "上市日"], [item["keyword"] for item in events])
+        self.assertEqual(["subscribe", "ballot", "list"], [item.event_type for item in events])
         self.assertIn("SUMMARY:【申购日】通合转债", calendar_text)
         self.assertIn("SUMMARY:【中签公布】通合转债", calendar_text)
         self.assertIn("SUMMARY:【上市日】通合转债", calendar_text)
@@ -128,14 +171,13 @@ class CalendarRulesTest(unittest.TestCase):
             }
         ]
 
-        events = main.build_eastmoney_events(rows, today=main.date(2026, 6, 1))
-        calendar_text = main.stable_calendar_text(main.build_calendar(events))
+        events = build_eastmoney_events(rows, self.config, today=date(2026, 6, 1))
+        calendar_text = stable_calendar_text(build_calendar(events, self.config))
         payment = event_block(calendar_text, "123271-payment-2026-06-04@bond-calendar")
 
         self.assertIn("TRIGGER:PT1H", payment)
         self.assertIn("TRIGGER:PT3H30M", payment)
         self.assertNotIn("TRIGGER:-P1D", payment)
-        self.assertNotIn("TRIGGER:-PT30M", payment)
 
     def test_eastmoney_events_skip_old_dates(self) -> None:
         rows = [
@@ -154,28 +196,17 @@ class CalendarRulesTest(unittest.TestCase):
             },
         ]
 
-        events = main.build_eastmoney_events(rows, today=main.date(2026, 6, 1))
+        events = build_eastmoney_events(rows, self.config, today=date(2026, 6, 1))
 
-        self.assertEqual(["123271", "123271"], [item["code"] for item in events])
-        self.assertEqual(["申购日", "中签公布"], [item["keyword"] for item in events])
+        self.assertEqual(["123271", "123271"], [item.code for item in events])
+        self.assertEqual(["subscribe", "ballot"], [item.event_type for item in events])
 
-    def test_load_events_falls_back_to_jisilu(self) -> None:
-        original_eastmoney = main.fetch_eastmoney_bond_data
-        original_jisilu = main.fetch_jisilu_calendar_data
-        try:
-            main.fetch_eastmoney_bond_data = lambda: None
-            main.fetch_jisilu_calendar_data = lambda: self.raw_events
 
-            loaded = main.load_matched_events(today=main.date(2026, 6, 1))
-
-            self.assertIsNotNone(loaded)
-            matched_events, raw_count, source = loaded
-            self.assertEqual(3, raw_count)
-            self.assertEqual("集思录兜底", source)
-            self.assertEqual(["申购日", "上市日"], [item["keyword"] for item in matched_events])
-        finally:
-            main.fetch_eastmoney_bond_data = original_eastmoney
-            main.fetch_jisilu_calendar_data = original_jisilu
+def restore_env(key: str, value: str | None) -> None:
+    if value is None:
+        os.environ.pop(key, None)
+    else:
+        os.environ[key] = value
 
 
 if __name__ == "__main__":

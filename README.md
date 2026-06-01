@@ -1,17 +1,18 @@
 # 可转债提醒助手
 
-这个项目会自动生成可订阅的可转债提醒日历 `kzz.ics`。当前以东方财富可转债接口为主数据源，生成可转债申购、中签公布和上市日期提醒；集思录可转债日历接口作为兜底数据源。
+这个项目会自动生成可订阅的可转债提醒日历 `kzz.ics`。项目核心只认统一的标准事件数据，具体数据来源由用户通过适配器提供；仓库内置东方财富和集思录作为可运行示例。
 
 项目只生成日历订阅文件，不包含邮件、短信、微信、Telegram 等推送功能，也不需要任何密钥。不包含 A 股新股申购提醒。
 
 ## 功能概览
 
-- 自动拉取可转债申购数据。
+- 使用“策略模式 + 适配器模式”：配置决定数据源策略，适配器负责把原始数据转换为标准事件。
+- 内置东方财富、集思录两个示例适配器，用户也可以接入自己的数据源。
 - 生成标准 `ICS` 日历文件。
 - 支持系统日历、Google Calendar、Apple Calendar 等订阅。
 - 使用稳定 UID，避免同一事件在日历中重复添加。
 - GitHub Actions 每天自动更新，并可同步到 Gitee。
-- 东方财富失败时自动使用集思录兜底，避免空文件覆盖已有日历。
+- 默认策略顺序为 `eastmoney,jisilu`；前一个策略没有可用事件时，会继续尝试下一个策略。
 
 ## 提醒规则
 
@@ -21,15 +22,15 @@
 - 中签公布
 - 上市日
 
-| 事件 | 数据字段 | 提醒时间 | 说明 |
+| 事件 | 标准事件类型 | 提醒时间 | 说明 |
 |---|---|---|---|
-| 申购日 | `PUBLIC_START_DATE` | 当天 10:00、12:30 | 提醒今天可以申购 |
-| 中签公布 | `BOND_START_DATE` | 当天 10:30、13:00 | 提醒查看中签结果；如中签再按券商要求处理 |
-| 上市日 | `LISTING_DATE` | 前一天、当天 09:25、当天 11:00、当天 13:30 | 提醒上市交易窗口 |
+| 申购日 | `subscribe` | 当天 10:00、12:30 | 提醒今天可以申购 |
+| 中签公布 | `ballot` | 当天 10:30、13:00 | 提醒查看中签结果；如中签再按券商要求处理 |
+| 上市日 | `list` | 前一天、当天 09:25、当天 11:00、当天 13:30 | 提醒上市交易窗口 |
 
 所有事件本身只占用当天 `09:30-09:35`，只是作为提醒载体。事件时间按北京时间 `Asia/Shanghai` 生成。
 
-`中签公布` 使用东方财富字段 `BOND_START_DATE`。该字段在页面上叫“中签号发布日”，提醒含义是“查看中签结果；如中签则按券商要求缴款”，不代表一定中签。
+在内置东方财富示例适配器中，`PUBLIC_START_DATE` 会转换为 `subscribe`，`BOND_START_DATE` 会转换为 `ballot`，`LISTING_DATE` 会转换为 `list`。其中 `BOND_START_DATE` 在页面上叫“中签号发布日”，本项目统一显示为“中签公布”，含义是“查看中签结果；如中签则按券商要求缴款”，不代表一定中签。
 
 如果可转债上市首日涨幅达到 30%，通常会临时停牌至 14:57 附近。是否达到 30% 需要在交易日当天 14:50 左右查询实时行情后判断；订阅日历不会保证分钟级刷新，因此本项目的 ICS 文件不动态生成“14:55 条件提醒”。这类提醒更适合另做盘中监控和即时推送。
 
@@ -74,7 +75,7 @@
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python main.py
+python main.py --config config/default.toml --output kzz.ics
 ```
 
 成功后会生成或更新：
@@ -94,6 +95,80 @@ grep -n "BEGIN:VCALENDAR\\|BEGIN:VEVENT\\|SUMMARY" kzz.ics | head -40
 ```bash
 python -m unittest discover -s tests
 ```
+
+无参数运行仍然可用：
+
+```bash
+python main.py
+```
+
+它等价于使用默认配置 `config/default.toml` 并输出到 `kzz.ics`。
+
+## 配置文件
+
+默认配置文件是：
+
+```text
+config/default.toml
+```
+
+主要配置项：
+
+| 配置 | 说明 |
+|---|---|
+| `calendar.output_file` | 默认输出文件 |
+| `calendar.timezone` | 事件时区，默认 `Asia/Shanghai` |
+| `calendar.event_lookback_days` | 保留今天前多少天以来的事件 |
+| `calendar.sources` | 数据源顺序，默认 `["eastmoney", "jisilu"]` |
+| `events.*.alarms` | 各事件类型的提醒规则 |
+| `adapters.*` | 数据源适配器的类路径、接口、超时、重试等配置 |
+
+CLI 和环境变量可覆盖部分配置：
+
+```bash
+python main.py --config config/default.toml --output kzz.ics --source eastmoney
+```
+
+支持的环境变量见 [.env.example](.env.example)：
+
+```text
+BOND_CALENDAR_CONFIG=config/default.toml
+BOND_CALENDAR_OUTPUT=kzz.ics
+BOND_CALENDAR_SOURCE=eastmoney,jisilu
+```
+
+`.env` 只用于本地覆盖，不要提交到 Git。
+
+## 数据源适配器
+
+项目核心逻辑只依赖标准事件对象，不直接依赖东方财富、集思录或任何第三方字段。这里的设计分成两层：
+
+- 数据层：每个适配器负责请求、读取、清洗自己的原始数据。
+- 业务层：只接收 `BondEvent` 标准事件，负责提醒规则、稳定 UID 和 ICS 生成。
+
+本项目采用“策略模式 + 适配器模式”：
+
+- 策略模式：`calendar.sources` 决定数据源尝试顺序，例如 `["eastmoney", "jisilu"]`。
+- 适配器模式：每个数据源把自己的原始字段转换成统一的 `BondEvent`。
+
+内置适配器只是示例：
+
+- `eastmoney`：读取东方财富 `RPT_BOND_CB_LIST`，可生成 `subscribe`、`ballot`、`list`。
+- `jisilu`：读取集思录可转债日历，可生成其接口中已有的标准事件。
+
+适配器需要输出统一字段：
+
+| 字段 | 说明 |
+|---|---|
+| `code` | 转债代码，必填 |
+| `name` | 转债简称，必填 |
+| `event_type` | `subscribe`、`ballot`、`list` 之一 |
+| `event_date` | 事件日期 |
+| `detail_url` | 详情页，可选 |
+| `description_fields` | 日历描述短字段，可选 |
+| `source` | 数据源名称，可选 |
+
+新增自定义数据源时，实现一个 Python 适配器，把你的原始数据转换成上述标准事件即可。配置中可以通过 `adapters.<name>.class` 指向你的适配器类，无需修改 ICS 生成逻辑。详细说明见 [docs/adapter-guide.md](docs/adapter-guide.md)。
 
 ## 输出文件
 
@@ -167,30 +242,27 @@ GITEE_REPO      bond-calendar
 
 ```text
 .
-├── main.py                         # 拉取数据并生成 kzz.ics
-├── kzz.ics                         # 日历订阅文件
-├── requirements.txt                # Python 依赖
-├── tests/test_calendar_rules.py    # 规则测试
-├── docs/eastmoney-bond-fields.md   # 东方财富字段说明
-└── .github/workflows/update-ics.yml # 自动更新工作流
+├── main.py                          # CLI 入口
+├── bond_calendar/                   # 核心包
+├── config/default.toml              # 默认配置
+├── kzz.ics                          # 日历订阅文件
+├── requirements.txt                 # Python 依赖
+├── tests/test_calendar_rules.py     # 规则测试
+├── docs/adapter-guide.md            # 适配器开发说明
+├── docs/eastmoney-bond-fields.md    # 东方财富示例字段说明
+└── .github/workflows/update-ics.yml  # 自动更新工作流
 ```
 
 ## 数据来源与风险说明
 
-当前程序主要使用东方财富可转债申购页面及接口：
+本项目的数据来源由适配器决定。默认配置提供两个内置示例策略，方便直接运行：
 
-```text
-https://data.eastmoney.com/xg/xg/?mkt=kzz
-https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_BOND_CB_LIST&columns=ALL&source=WEB&client=WEB
-```
+| 策略名 | 示例数据来源 | 说明 |
+|---|---|---|
+| `eastmoney` | `https://data.eastmoney.com/xg/xg/?mkt=kzz` | 读取东方财富 `RPT_BOND_CB_LIST` 接口 |
+| `jisilu` | `https://www.jisilu.cn/data/calendar/get_calendar_data/?qtype=CNV` | 读取集思录可转债日历接口 |
 
-如果东方财富接口请求失败、返回结构异常或没有可用事件，程序会使用集思录可转债日历接口作为兜底：
-
-```text
-https://www.jisilu.cn/data/calendar/get_calendar_data/?qtype=CNV
-```
-
-东方财富接口字段说明见 [docs/eastmoney-bond-fields.md](docs/eastmoney-bond-fields.md)。
+东方财富示例适配器字段说明见 [docs/eastmoney-bond-fields.md](docs/eastmoney-bond-fields.md)。自定义数据源只要输出标准事件对象即可，不需要使用上述两个网站。
 
 上述数据均来自第三方接口，可能出现延迟、缺失、错误、变更或不可用。本项目仅供学习、研究和技术交流使用，学习完成后请自行删除本项目及其生成文件。本项目不构成投资建议、交易建议、数据服务或任何形式的收益承诺，不保证任何数据或提醒的准确性、完整性、及时性和可用性。
 
@@ -198,4 +270,4 @@ https://www.jisilu.cn/data/calendar/get_calendar_data/?qtype=CNV
 
 ## 失败保护
 
-如果东方财富接口请求失败、返回结构异常或没有可用事件，程序会输出 warning 并尝试使用集思录接口兜底。只有两个数据源都不可用时，程序才会退出并保留已有的 `kzz.ics`，避免用空文件覆盖订阅日历。
+程序会按 `calendar.sources` 配置的策略顺序依次尝试数据源。某个策略请求失败、返回结构异常或没有可用事件时，程序会输出 warning 并尝试下一个策略。所有策略都不可用时，程序会退出并保留已有的 `kzz.ics`，避免用空文件覆盖订阅日历。

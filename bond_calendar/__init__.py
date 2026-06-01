@@ -1,0 +1,2 @@
+"""Convertible bond calendar generator."""
+
