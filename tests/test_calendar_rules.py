@@ -110,13 +110,14 @@ class CalendarRulesTest(unittest.TestCase):
         self.assertIn("UID:123271-subscribe-2026-06-02@bond-calendar", calendar_text)
         self.assertIn("UID:123271-payment-2026-06-04@bond-calendar", calendar_text)
         self.assertIn("UID:123271-list-2026-06-20@bond-calendar", calendar_text)
-        self.assertIn("申购代码: 370491", calendar_text)
-        self.assertIn("股权登记日: 2026-06-01", calendar_text)
-        self.assertIn("发行规模: 5.219327亿元", calendar_text)
+        self.assertIn("申购: 370491", calendar_text)
+        self.assertIn("登记: 2026-06-01", calendar_text)
+        self.assertIn("配售: 2.9377/股", calendar_text)
+        self.assertIn("规模: 5.22亿", calendar_text)
         self.assertIn("中签率: 0.0012%", calendar_text)
-        self.assertIn("信用评级: AA", calendar_text)
+        self.assertIn("评级: AA", calendar_text)
         self.assertIn("正股: 通合科技(300491)", calendar_text)
-        self.assertIn("数据来源: 东方财富", calendar_text)
+        self.assertIn("来源: 东方财富", calendar_text)
 
     def test_ballot_announcement_alarm_rules(self) -> None:
         rows = [

@@ -7,6 +7,7 @@ import sys
 import time
 import warnings
 from datetime import date, datetime, time as clock_time, timedelta
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
@@ -214,22 +215,50 @@ def is_empty_value(value: Any) -> bool:
     return value is None or value == "" or value == "-"
 
 
-def format_percent(value: Any) -> str | None:
+def format_decimal(value: Any, digits: int) -> str | None:
     if is_empty_value(value):
         return None
-    return f"{value}%"
+    try:
+        number = Decimal(str(value))
+    except InvalidOperation:
+        return str(value)
+
+    quantizer = Decimal("1") if digits == 0 else Decimal("0." + "0" * (digits - 1) + "1")
+    return f"{number.quantize(quantizer):f}".rstrip("0").rstrip(".")
+
+
+def format_percent(value: Any) -> str | None:
+    formatted = format_decimal(value, 4)
+    if formatted is None:
+        return None
+    return f"{formatted}%"
 
 
 def format_scale(value: Any) -> str | None:
-    if is_empty_value(value):
+    formatted = format_decimal(value, 2)
+    if formatted is None:
         return None
-    return f"{value}亿元"
+    return f"{formatted}亿"
+
+
+def format_preplacing(value: Any) -> str | None:
+    formatted = format_decimal(value, 4)
+    if formatted is None:
+        return None
+    return f"{formatted}/股"
 
 
 def optional_line(label: str, value: Any) -> str | None:
     if is_empty_value(value):
         return None
     return f"{label}: {value}"
+
+
+def compact_join(parts: list[str | None], separator: str = " | ") -> str | None:
+    values = [part for part in parts if part]
+    if not values:
+        return None
+    return separator.join(values)
 
 
 def clean_description(value: Any) -> str:
@@ -256,19 +285,27 @@ def eastmoney_description(row: dict[str, Any], detail_url: str) -> str:
     if not is_empty_value(stock_code) and not is_empty_value(stock_name):
         stock_line = f"正股: {stock_name}({stock_code})"
     elif not is_empty_value(stock_code):
-        stock_line = f"正股代码: {stock_code}"
+        stock_line = f"正股: {stock_code}"
     elif not is_empty_value(stock_name):
-        stock_line = f"正股简称: {stock_name}"
+        stock_line = f"正股: {stock_name}"
 
     lines = [
-        optional_line("申购代码", row.get("CORRECODE")),
-        optional_line("股权登记日", format_event_date(row.get("SECURITY_START_DATE"))),
-        optional_line("每股配售额", row.get("FIRST_PER_PREPLACING")),
-        optional_line("发行规模", format_scale(row.get("ACTUAL_ISSUE_SCALE"))),
-        optional_line("中签率", format_percent(row.get("ONLINE_GENERAL_LWR"))),
-        optional_line("信用评级", row.get("RATING")),
+        optional_line("申购", row.get("CORRECODE")),
         stock_line,
-        "数据来源: 东方财富",
+        compact_join(
+            [
+                optional_line("登记", format_event_date(row.get("SECURITY_START_DATE"))),
+                optional_line("配售", format_preplacing(row.get("FIRST_PER_PREPLACING"))),
+            ]
+        ),
+        compact_join(
+            [
+                optional_line("规模", format_scale(row.get("ACTUAL_ISSUE_SCALE"))),
+                optional_line("评级", row.get("RATING")),
+            ]
+        ),
+        optional_line("中签率", format_percent(row.get("ONLINE_GENERAL_LWR"))),
+        "来源: 东方财富",
     ]
     return "\n".join(line for line in lines if line)
 
@@ -396,9 +433,9 @@ def build_event(item: dict[str, Any]) -> Event:
         part
         for part in [
             item["title"],
-            f"转债代码: {item['code']}",
-            f"详情页: {detail_url}",
+            f"代码: {item['code']}",
             item.get("description", ""),
+            f"详情: {detail_url}",
         ]
         if part
     )

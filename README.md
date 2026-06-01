@@ -1,34 +1,70 @@
 # 可转债提醒助手
 
-这个项目会从东方财富可转债接口获取事件，生成可转债申购、中签公布和上市日期提醒，并生成可被系统日历、Google Calendar、Apple Calendar 等订阅的 `kzz.ics` 文件。不包含 A 股新股申购提醒。集思录可转债日历接口仅作为兜底数据源。
+这个项目会自动生成可订阅的可转债提醒日历 `kzz.ics`。当前以东方财富可转债接口为主数据源，生成可转债申购、中签公布和上市日期提醒；集思录可转债日历接口作为兜底数据源。
 
-第一版只生成日历订阅文件，不包含邮件、短信、微信、Telegram 等推送功能，也不需要任何密钥。
+项目只生成日历订阅文件，不包含邮件、短信、微信、Telegram 等推送功能，也不需要任何密钥。不包含 A 股新股申购提醒。
 
-## 提醒范围
+## 功能概览
 
-默认保留这些事件：
+- 自动拉取可转债申购数据。
+- 生成标准 `ICS` 日历文件。
+- 支持系统日历、Google Calendar、Apple Calendar 等订阅。
+- 使用稳定 UID，避免同一事件在日历中重复添加。
+- GitHub Actions 每天自动更新，并可同步到 Gitee。
+- 东方财富失败时自动使用集思录兜底，避免空文件覆盖已有日历。
+
+## 提醒规则
+
+默认保留 3 类事件：
 
 - 申购日
 - 中签公布
 - 上市日
 
-提醒规则：
+| 事件 | 数据字段 | 提醒时间 | 说明 |
+|---|---|---|---|
+| 申购日 | `PUBLIC_START_DATE` | 当天 10:00、12:30 | 提醒今天可以申购 |
+| 中签公布 | `BOND_START_DATE` | 当天 10:30、13:00 | 提醒查看中签结果；如中签再按券商要求处理 |
+| 上市日 | `LISTING_DATE` | 前一天、当天 09:25、当天 11:00、当天 13:30 | 提醒上市交易窗口 |
 
-- 申购日当天 10:00 提醒一次。
-- 申购日当天 12:30 提醒一次。
-- 中签公布当天 10:30 提醒一次。
-- 中签公布当天 13:00 提醒一次。
-- 上市日提前 1 天提醒一次。
-- 上市日开盘前 5 分钟提醒一次，即当天 09:25。
-- 上市日当天 11:00 提醒一次。
-- 上市日下午 13:30 提醒一次。
-- 日历事件本身只占用 09:30 到 09:35，用作提醒载体。
+所有事件本身只占用当天 `09:30-09:35`，只是作为提醒载体。事件时间按北京时间 `Asia/Shanghai` 生成。
 
 `中签公布` 使用东方财富字段 `BOND_START_DATE`。该字段在页面上叫“中签号发布日”，提醒含义是“查看中签结果；如中签则按券商要求缴款”，不代表一定中签。
 
 如果可转债上市首日涨幅达到 30%，通常会临时停牌至 14:57 附近。是否达到 30% 需要在交易日当天 14:50 左右查询实时行情后判断；订阅日历不会保证分钟级刷新，因此本项目的 ICS 文件不动态生成“14:55 条件提醒”。这类提醒更适合另做盘中监控和即时推送。
 
-事件时间按北京时间 `Asia/Shanghai` 生成。
+## 事件关系
+
+同一只可转债通常会按下面的业务顺序出现：
+
+```text
+申购日 -> 中签公布 -> 上市日
+```
+
+在 ICS 中它们是独立事件，依靠相同的转债代码和名称关联。例如：
+
+```text
+123271-subscribe-2026-06-02@bond-calendar
+123271-payment-2026-06-04@bond-calendar
+123271-list-2026-xx-xx@bond-calendar
+```
+
+这样可以让每个日期单独更新、单独提醒，并保持 UID 稳定。
+
+## ICS 描述模板
+
+日历事件描述会尽量压缩成短字段，避免手机日历详情过长：
+
+```text
+【申购日】通合转债
+代码: 123271
+申购: 370491
+正股: 通合科技(300491)
+登记: 2026-06-01 | 配售: 2.9377/股
+规模: 5.22亿 | 评级: AA
+来源: 东方财富
+详情: https://data.eastmoney.com/kzz/detail/123271.html
+```
 
 ## 本地运行
 
@@ -59,6 +95,16 @@ grep -n "BEGIN:VCALENDAR\\|BEGIN:VEVENT\\|SUMMARY" kzz.ics | head -40
 python -m unittest discover -s tests
 ```
 
+## 输出文件
+
+项目核心输出是仓库根目录下的：
+
+```text
+kzz.ics
+```
+
+它是最终用于订阅的日历文件。请使用“订阅日历”，不要反复下载并导入 `.ics` 文件；导入只是静态复制，后续不会自动同步，也更容易产生重复事件。
+
 ## 日历订阅
 
 推荐使用 GitHub Pages 地址订阅：
@@ -73,7 +119,11 @@ https://hanshuheng.github.io/bond-calendar/kzz.ics
 webcal://hanshuheng.github.io/bond-calendar/kzz.ics
 ```
 
-请使用“订阅日历”，不要反复下载并导入 `.ics` 文件。订阅会随着远端 `kzz.ics` 自动更新；导入只是静态复制，后续不会自动同步，也更容易产生重复事件。
+如果所在网络访问 GitHub 不稳定，也可以使用 Gitee raw 地址：
+
+```text
+https://gitee.com/shuheng17/bond-calendar/raw/main/kzz.ics
+```
 
 `raw.githubusercontent.com` 在部分网络环境下可能超时，不作为首选订阅地址。
 
@@ -87,6 +137,7 @@ webcal://hanshuheng.github.io/bond-calendar/kzz.ics
 - 运行 `python main.py` 生成 `kzz.ics`。
 - 只在 `kzz.ics` 有变化时提交。
 - 提交时只执行 `git add kzz.ics`。
+- 如已配置 Gitee secrets，会自动同步到 Gitee。
 
 仓库已启用 GitHub Pages，从 `main` 分支根目录发布，因此 `kzz.ics` 更新后会通过 Pages 地址提供订阅。
 
@@ -111,6 +162,18 @@ GITEE_REPO      bond-calendar
 ```
 
 配置完成后，GitHub Actions 每次运行都会在更新 GitHub 后同步到 Gitee。若这 3 个 secrets 没有配置，Gitee 同步步骤会自动跳过，不影响 GitHub 更新。
+
+## 项目结构
+
+```text
+.
+├── main.py                         # 拉取数据并生成 kzz.ics
+├── kzz.ics                         # 日历订阅文件
+├── requirements.txt                # Python 依赖
+├── tests/test_calendar_rules.py    # 规则测试
+├── docs/eastmoney-bond-fields.md   # 东方财富字段说明
+└── .github/workflows/update-ics.yml # 自动更新工作流
+```
 
 ## 数据来源与风险说明
 
