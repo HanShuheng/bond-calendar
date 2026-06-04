@@ -84,7 +84,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】迪威转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】迪威转债\n代码: 118068\n申购: 718377\n正股: 迪威尔(688377)\n登记: 2026-06-03 | 配售: 3.886/股\n规模: 9.08亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118068.html
+DESCRIPTION:【申购日】迪威转债\n代码: 118068\n申购: 718377\n正股: 迪威尔(688377)\n登记: 2026-06-03 | 配售: 3.886/股\n规模: 9.08亿 | 评级: AA-\n中签率: 0.0017%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118068.html
 DTEND:20260604T013500Z
 DTSTART:20260604T013000Z
 SUMMARY:【申购日】迪威转债
@@ -102,7 +102,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】迪威转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】迪威转债\n代码: 118068\n申购: 718377\n正股: 迪威尔(688377)\n登记: 2026-06-03 | 配售: 3.886/股\n规模: 9.08亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118068.html
+DESCRIPTION:【中签结果公布】迪威转债\n代码: 118068\n申购: 718377\n正股: 迪威尔(688377)\n登记: 2026-06-03 | 配售: 3.886/股\n规模: 9.08亿 | 评级: AA-\n中签率: 0.0017%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118068.html
 DTEND:20260608T013500Z
 DTSTART:20260608T013000Z
 SUMMARY:【中签结果公布】迪威转债
