@@ -4,24 +4,6 @@ PRODID:bond-calendar
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】盛德转债
-TRIGGER:PT1H
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】盛德转债
-TRIGGER:PT3H30M
-END:VALARM
-DESCRIPTION:【中签结果公布】盛德转债\n代码: 123270\n申购: 370881\n正股: 盛德鑫泰(300881)\n登记: 2026-05-29 | 配售: 3.7058/股\n规模: 4.05亿 | 评级: A+\n中签率: 0.0005%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123270.html
-DTEND:20260603T013500Z
-DTSTART:20260603T013000Z
-SUMMARY:【中签结果公布】盛德转债
-UID:123270-payment-2026-06-03@bond-calendar
-URL:https://data.eastmoney.com/kzz/detail/123270.html
-END:VEVENT
-BEGIN:VEVENT
-BEGIN:VALARM
-ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】通合转债
 TRIGGER:PT1H
 END:VALARM
@@ -138,7 +120,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】中汽转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】中汽转债\n代码: 123272\n申购: 371215\n正股: 中汽股份(301215)\n登记: 2026-06-10 | 配售: 0.7848/股\n规模: 10.39亿 | 评级: AA+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123272.html
+DESCRIPTION:【申购日】中汽转债\n代码: 123272\n申购: 371215\n正股: 中汽股份(301215)\n登记: 2026-06-10 | 配售: 0.7848/股\n规模: 10.39亿 | 评级: AA+\n中签率: 0.0019%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123272.html
 DTEND:20260611T013500Z
 DTSTART:20260611T013000Z
 SUMMARY:【申购日】中汽转债
@@ -156,7 +138,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】爱科转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】爱科转债\n代码: 118069\n申购: 718092\n正股: 爱科科技(688092)\n登记: 2026-06-10 | 配售: 3.229/股\n规模: 2.67亿 | 评级: AA-sti\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118069.html
+DESCRIPTION:【申购日】爱科转债\n代码: 118069\n申购: 718092\n正股: 爱科科技(688092)\n登记: 2026-06-10 | 配售: 3.229/股\n规模: 2.67亿 | 评级: AA-sti\n中签率: 0.0004%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118069.html
 DTEND:20260611T013500Z
 DTSTART:20260611T013000Z
 SUMMARY:【申购日】爱科转债
@@ -220,7 +202,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】中汽转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】中汽转债\n代码: 123272\n申购: 371215\n正股: 中汽股份(301215)\n登记: 2026-06-10 | 配售: 0.7848/股\n规模: 10.39亿 | 评级: AA+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123272.html
+DESCRIPTION:【中签结果公布】中汽转债\n代码: 123272\n申购: 371215\n正股: 中汽股份(301215)\n登记: 2026-06-10 | 配售: 0.7848/股\n规模: 10.39亿 | 评级: AA+\n中签率: 0.0019%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123272.html
 DTEND:20260615T013500Z
 DTSTART:20260615T013000Z
 SUMMARY:【中签结果公布】中汽转债
@@ -238,7 +220,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】爱科转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】爱科转债\n代码: 118069\n申购: 718092\n正股: 爱科科技(688092)\n登记: 2026-06-10 | 配售: 3.229/股\n规模: 2.67亿 | 评级: AA-sti\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118069.html
+DESCRIPTION:【中签结果公布】爱科转债\n代码: 118069\n申购: 718092\n正股: 爱科科技(688092)\n登记: 2026-06-10 | 配售: 3.229/股\n规模: 2.67亿 | 评级: AA-sti\n中签率: 0.0004%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118069.html
 DTEND:20260615T013500Z
 DTSTART:20260615T013000Z
 SUMMARY:【中签结果公布】爱科转债
