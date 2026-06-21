@@ -166,7 +166,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】南芯转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】南芯转债\n代码: 118070\n申购: 718484\n正股: 南芯科技(688484)\n登记: 2026-06-17 | 配售: 3.725/股\n规模: 15.87亿 | 评级: AA+sti\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118070.html
+DESCRIPTION:【申购日】南芯转债\n代码: 118070\n申购: 718484\n正股: 南芯科技(688484)\n登记: 2026-06-17 | 配售: 3.725/股\n规模: 15.87亿 | 评级: AA+sti\n中签率: 0.0072%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118070.html
 DTEND:20260618T013500Z
 DTSTART:20260618T013000Z
 SUMMARY:【申购日】南芯转债
@@ -202,7 +202,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】南芯转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】南芯转债\n代码: 118070\n申购: 718484\n正股: 南芯科技(688484)\n登记: 2026-06-17 | 配售: 3.725/股\n规模: 15.87亿 | 评级: AA+sti\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118070.html
+DESCRIPTION:【中签结果公布】南芯转债\n代码: 118070\n申购: 718484\n正股: 南芯科技(688484)\n登记: 2026-06-17 | 配售: 3.725/股\n规模: 15.87亿 | 评级: AA+sti\n中签率: 0.0072%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118070.html
 DTEND:20260623T013500Z
 DTSTART:20260623T013000Z
 SUMMARY:【中签结果公布】南芯转债
