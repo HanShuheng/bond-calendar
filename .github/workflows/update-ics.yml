@@ -56,6 +56,7 @@ jobs:
           git push
 
       - name: Sync to Gitee if configured
+        timeout-minutes: 8
         env:
           GITEE_USERNAME: ${{ secrets.GITEE_USERNAME }}
           GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
@@ -67,4 +68,13 @@ jobs:
           fi
           git remote remove gitee 2>/dev/null || true
           git remote add gitee "https://${GITEE_USERNAME}:${GITEE_TOKEN}@gitee.com/${GITEE_USERNAME}/${GITEE_REPO}.git"
-          git push gitee HEAD:main
+          for attempt in 1 2 3; do
+            if timeout 120s git push gitee HEAD:main; then
+              echo "Gitee sync succeeded."
+              exit 0
+            fi
+            status=$?
+            echo "::warning::Gitee sync attempt ${attempt} failed with exit code ${status}."
+            sleep $((attempt * 10))
+          done
+          echo "::warning::Gitee sync failed after 3 attempts; keep GitHub ICS update successful."
