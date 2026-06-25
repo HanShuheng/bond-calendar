@@ -4,88 +4,6 @@ PRODID:bond-calendar
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】通合转债
-TRIGGER:-P1D
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【上市日】通合转债
-TRIGGER:-PT5M
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【上市日】通合转债
-TRIGGER:PT1H30M
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【上市日】通合转债
-TRIGGER:PT4H
-END:VALARM
-DESCRIPTION:【上市日】通合转债\n代码: 123271\n申购: 370491\n正股: 通合科技(300491)\n登记: 2026-06-01 | 配售: 2.9377/股\n规模: 5.22亿 | 评级: AA\n中签率: 0.0019%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123271.html
-DTEND:20260617T013500Z
-DTSTART:20260617T013000Z
-SUMMARY:【上市日】通合转债
-UID:123271-list-2026-06-17@bond-calendar
-URL:https://data.eastmoney.com/kzz/detail/123271.html
-END:VEVENT
-BEGIN:VEVENT
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】豪26转债
-TRIGGER:PT1H
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】豪26转债
-TRIGGER:PT3H30M
-END:VALARM
-DESCRIPTION:【中签结果公布】豪26转债\n代码: 113705\n申购: 754809\n正股: 豪能股份(603809)\n登记: 2026-06-12 | 配售: 1.955/股\n规模: 18亿 | 评级: AA-\n中签率: 0.0043%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113705.html
-DTEND:20260617T013500Z
-DTSTART:20260617T013000Z
-SUMMARY:【中签结果公布】豪26转债
-UID:113705-payment-2026-06-17@bond-calendar
-URL:https://data.eastmoney.com/kzz/detail/113705.html
-END:VEVENT
-BEGIN:VEVENT
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】金帝转债
-TRIGGER:PT1H
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】金帝转债
-TRIGGER:PT3H30M
-END:VALARM
-DESCRIPTION:【中签结果公布】金帝转债\n代码: 113706\n申购: 754270\n正股: 金帝股份(603270)\n登记: 2026-06-12 | 配售: 4.427/股\n规模: 9.7亿 | 评级: AA\n中签率: 0.0029%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113706.html
-DTEND:20260617T013500Z
-DTSTART:20260617T013000Z
-SUMMARY:【中签结果公布】金帝转债
-UID:113706-payment-2026-06-17@bond-calendar
-URL:https://data.eastmoney.com/kzz/detail/113706.html
-END:VEVENT
-BEGIN:VEVENT
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【申购日】三江转债
-TRIGGER:PT30M
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【申购日】三江转债
-TRIGGER:PT3H
-END:VALARM
-DESCRIPTION:【申购日】三江转债\n代码: 123273\n申购: 371059\n正股: 金三江(301059)\n登记: 2026-06-16 | 配售: 1.2604/股\n规模: 2.9亿 | 评级: A+\n中签率: 0.0002%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123273.html
-DTEND:20260617T013500Z
-DTSTART:20260617T013000Z
-SUMMARY:【申购日】三江转债
-UID:123273-subscribe-2026-06-17@bond-calendar
-URL:https://data.eastmoney.com/kzz/detail/123273.html
-END:VEVENT
-BEGIN:VEVENT
-BEGIN:VALARM
-ACTION:DISPLAY
 DESCRIPTION:【申购日】南芯转债
 TRIGGER:PT30M
 END:VALARM
@@ -166,7 +84,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】宝钛转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】宝钛转债\n代码: 110101\n申购: 733456\n正股: 宝钛股份(600456)\n登记: 2026-06-23 | 配售: 7.447/股\n规模: 35亿 | 评级: AAA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/110101.html
+DESCRIPTION:【申购日】宝钛转债\n代码: 110101\n申购: 733456\n正股: 宝钛股份(600456)\n登记: 2026-06-23 | 配售: 7.447/股\n规模: 35亿 | 评级: AAA\n中签率: 0.008%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/110101.html
 DTEND:20260624T013500Z
 DTSTART:20260624T013000Z
 SUMMARY:【申购日】宝钛转债
@@ -184,7 +102,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】鼎通转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】鼎通转债\n代码: 118072\n申购: 718668\n正股: 鼎通科技(688668)\n登记: 2026-06-23 | 配售: 6.677/股\n规模: 9.3亿 | 评级: A+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118072.html
+DESCRIPTION:【申购日】鼎通转债\n代码: 118072\n申购: 718668\n正股: 鼎通科技(688668)\n登记: 2026-06-23 | 配售: 6.677/股\n规模: 9.3亿 | 评级: A+\n中签率: 0.0028%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118072.html
 DTEND:20260624T013500Z
 DTSTART:20260624T013000Z
 SUMMARY:【申购日】鼎通转债
@@ -238,7 +156,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】宝钛转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】宝钛转债\n代码: 110101\n申购: 733456\n正股: 宝钛股份(600456)\n登记: 2026-06-23 | 配售: 7.447/股\n规模: 35亿 | 评级: AAA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/110101.html
+DESCRIPTION:【中签结果公布】宝钛转债\n代码: 110101\n申购: 733456\n正股: 宝钛股份(600456)\n登记: 2026-06-23 | 配售: 7.447/股\n规模: 35亿 | 评级: AAA\n中签率: 0.008%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/110101.html
 DTEND:20260626T013500Z
 DTSTART:20260626T013000Z
 SUMMARY:【中签结果公布】宝钛转债
@@ -256,7 +174,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】鼎通转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】鼎通转债\n代码: 118072\n申购: 718668\n正股: 鼎通科技(688668)\n登记: 2026-06-23 | 配售: 6.677/股\n规模: 9.3亿 | 评级: A+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118072.html
+DESCRIPTION:【中签结果公布】鼎通转债\n代码: 118072\n申购: 718668\n正股: 鼎通科技(688668)\n登记: 2026-06-23 | 配售: 6.677/股\n规模: 9.3亿 | 评级: A+\n中签率: 0.0028%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118072.html
 DTEND:20260626T013500Z
 DTSTART:20260626T013000Z
 SUMMARY:【中签结果公布】鼎通转债
@@ -316,6 +234,34 @@ DTSTART:20260629T013000Z
 SUMMARY:【中签结果公布】圣泉转债
 UID:111025-payment-2026-06-29@bond-calendar
 URL:https://data.eastmoney.com/kzz/detail/111025.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【上市日】中汽转债
+TRIGGER:-P1D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【上市日】中汽转债
+TRIGGER:-PT5M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【上市日】中汽转债
+TRIGGER:PT1H30M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【上市日】中汽转债
+TRIGGER:PT4H
+END:VALARM
+DESCRIPTION:【上市日】中汽转债\n代码: 123272\n申购: 371215\n正股: 中汽股份(301215)\n登记: 2026-06-10 | 配售: 0.7848/股\n规模: 10.39亿 | 评级: AA+\n中签率: 0.0019%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123272.html
+DTEND:20260630T013500Z
+DTSTART:20260630T013000Z
+SUMMARY:【上市日】中汽转债
+UID:123272-list-2026-06-30@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/123272.html
 END:VEVENT
 BEGIN:VEVENT
 BEGIN:VALARM
