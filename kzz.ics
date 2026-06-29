@@ -174,7 +174,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】宜化转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】宜化转债\n代码: 127114\n申购: 070422\n正股: 湖北宜化(000422)\n登记: 2026-06-25 | 配售: 3.0342/股\n规模: 33亿 | 评级: AA+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127114.html
+DESCRIPTION:【申购日】宜化转债\n代码: 127114\n申购: 070422\n正股: 湖北宜化(000422)\n登记: 2026-06-25 | 配售: 3.0342/股\n规模: 33亿 | 评级: AA+\n中签率: 0.0111%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127114.html
 DTEND:20260626T013500Z
 DTSTART:20260626T013000Z
 SUMMARY:【申购日】宜化转债
@@ -192,7 +192,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】维科转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】维科转债\n代码: 123274\n申购: 371499\n正股: 维科精密(301499)\n登记: 2026-06-25 | 配售: 4.5568/股\n规模: 6.3亿 | 评级: A+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123274.html
+DESCRIPTION:【申购日】维科转债\n代码: 123274\n申购: 371499\n正股: 维科精密(301499)\n登记: 2026-06-25 | 配售: 4.5568/股\n规模: 6.3亿 | 评级: A+\n中签率: 0.0008%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123274.html
 DTEND:20260626T013500Z
 DTSTART:20260626T013000Z
 SUMMARY:【申购日】维科转债
@@ -284,7 +284,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】宜化转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】宜化转债\n代码: 127114\n申购: 070422\n正股: 湖北宜化(000422)\n登记: 2026-06-25 | 配售: 3.0342/股\n规模: 33亿 | 评级: AA+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127114.html
+DESCRIPTION:【中签结果公布】宜化转债\n代码: 127114\n申购: 070422\n正股: 湖北宜化(000422)\n登记: 2026-06-25 | 配售: 3.0342/股\n规模: 33亿 | 评级: AA+\n中签率: 0.0111%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127114.html
 DTEND:20260630T013500Z
 DTSTART:20260630T013000Z
 SUMMARY:【中签结果公布】宜化转债
@@ -302,7 +302,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】维科转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】维科转债\n代码: 123274\n申购: 371499\n正股: 维科精密(301499)\n登记: 2026-06-25 | 配售: 4.5568/股\n规模: 6.3亿 | 评级: A+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123274.html
+DESCRIPTION:【中签结果公布】维科转债\n代码: 123274\n申购: 371499\n正股: 维科精密(301499)\n登记: 2026-06-25 | 配售: 4.5568/股\n规模: 6.3亿 | 评级: A+\n中签率: 0.0008%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123274.html
 DTEND:20260630T013500Z
 DTSTART:20260630T013000Z
 SUMMARY:【中签结果公布】维科转债
