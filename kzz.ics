@@ -150,7 +150,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】科博转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】科博转债\n代码: 113707\n申购: 754786\n正股: 科博达(603786)\n登记: 2026-07-02 | 配售: 3.691/股\n规模: 14.91亿 | 评级: AA+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113707.html
+DESCRIPTION:【申购日】科博转债\n代码: 113707\n申购: 754786\n正股: 科博达(603786)\n登记: 2026-07-02 | 配售: 3.691/股\n规模: 14.91亿 | 评级: AA+\n中签率: 0.0013%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113707.html
 DTEND:20260703T013500Z
 DTSTART:20260703T013000Z
 SUMMARY:【申购日】科博转债
@@ -224,7 +224,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】科博转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】科博转债\n代码: 113707\n申购: 754786\n正股: 科博达(603786)\n登记: 2026-07-02 | 配售: 3.691/股\n规模: 14.91亿 | 评级: AA+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113707.html
+DESCRIPTION:【中签结果公布】科博转债\n代码: 113707\n申购: 754786\n正股: 科博达(603786)\n登记: 2026-07-02 | 配售: 3.691/股\n规模: 14.91亿 | 评级: AA+\n中签率: 0.0013%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113707.html
 DTEND:20260707T013500Z
 DTSTART:20260707T013000Z
 SUMMARY:【中签结果公布】科博转债
