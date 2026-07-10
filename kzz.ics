@@ -124,28 +124,28 @@ END:VEVENT
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】N爱科转
+DESCRIPTION:【上市日】爱科转债
 TRIGGER:-P1D
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】N爱科转
+DESCRIPTION:【上市日】爱科转债
 TRIGGER:-PT5M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】N爱科转
+DESCRIPTION:【上市日】爱科转债
 TRIGGER:PT1H30M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】N爱科转
+DESCRIPTION:【上市日】爱科转债
 TRIGGER:PT4H
 END:VALARM
-DESCRIPTION:【上市日】N爱科转\n代码: 118069\n申购: 718092\n正股: 爱科科技(688092)\n登记: 2026-06-10 | 配售: 3.229/股\n规模: 2.67亿 | 评级: AA-sti\n中签率: 0.0004%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118069.html
+DESCRIPTION:【上市日】爱科转债\n代码: 118069\n申购: 718092\n正股: 爱科科技(688092)\n登记: 2026-06-10 | 配售: 3.229/股\n规模: 2.67亿 | 评级: AA-sti\n中签率: 0.0004%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118069.html
 DTEND:20260709T013500Z
 DTSTART:20260709T013000Z
-SUMMARY:【上市日】N爱科转
+SUMMARY:【上市日】爱科转债
 UID:118069-list-2026-07-09@bond-calendar
 URL:https://data.eastmoney.com/kzz/detail/118069.html
 END:VEVENT
@@ -160,7 +160,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】肇民转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】肇民转债\n代码: 123275\n申购: 371000\n正股: 肇民科技(301000)\n登记: 2026-07-08 | 配售: 2.4257/股\n规模: 5.9亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123275.html
+DESCRIPTION:【申购日】肇民转债\n代码: 123275\n申购: 371000\n正股: 肇民科技(301000)\n登记: 2026-07-08 | 配售: 2.4257/股\n规模: 5.9亿 | 评级: AA-\n中签率: 0.0017%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123275.html
 DTEND:20260709T013500Z
 DTSTART:20260709T013000Z
 SUMMARY:【申购日】肇民转债
@@ -170,28 +170,28 @@ END:VEVENT
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】南芯转债
+DESCRIPTION:【上市日】N南芯转
 TRIGGER:-P1D
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】南芯转债
+DESCRIPTION:【上市日】N南芯转
 TRIGGER:-PT5M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】南芯转债
+DESCRIPTION:【上市日】N南芯转
 TRIGGER:PT1H30M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】南芯转债
+DESCRIPTION:【上市日】N南芯转
 TRIGGER:PT4H
 END:VALARM
-DESCRIPTION:【上市日】南芯转债\n代码: 118070\n申购: 718484\n正股: 南芯科技(688484)\n登记: 2026-06-17 | 配售: 3.725/股\n规模: 15.87亿 | 评级: AA+sti\n中签率: 0.0072%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118070.html
+DESCRIPTION:【上市日】N南芯转\n代码: 118070\n申购: 718484\n正股: 南芯科技(688484)\n登记: 2026-06-17 | 配售: 3.725/股\n规模: 15.87亿 | 评级: AA+sti\n中签率: 0.0072%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118070.html
 DTEND:20260710T013500Z
 DTSTART:20260710T013000Z
-SUMMARY:【上市日】南芯转债
+SUMMARY:【上市日】N南芯转
 UID:118070-list-2026-07-10@bond-calendar
 URL:https://data.eastmoney.com/kzz/detail/118070.html
 END:VEVENT
@@ -290,7 +290,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】肇民转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】肇民转债\n代码: 123275\n申购: 371000\n正股: 肇民科技(301000)\n登记: 2026-07-08 | 配售: 2.4257/股\n规模: 5.9亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123275.html
+DESCRIPTION:【中签结果公布】肇民转债\n代码: 123275\n申购: 371000\n正股: 肇民科技(301000)\n登记: 2026-07-08 | 配售: 2.4257/股\n规模: 5.9亿 | 评级: AA-\n中签率: 0.0017%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123275.html
 DTEND:20260713T013500Z
 DTSTART:20260713T013000Z
 SUMMARY:【中签结果公布】肇民转债
@@ -324,5 +324,41 @@ DTSTART:20260714T013000Z
 SUMMARY:【上市日】宜化转债
 UID:127114-list-2026-07-14@bond-calendar
 URL:https://data.eastmoney.com/kzz/detail/127114.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申购日】江农转债
+TRIGGER:PT30M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申购日】江农转债
+TRIGGER:PT3H
+END:VALARM
+DESCRIPTION:【申购日】江农转债\n代码: 110102\n申购: 733389\n正股: 江山股份(600389)\n登记: 2026-07-13 | 配售: 2.751/股\n规模: 11.85亿 | 评级: AA+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/110102.html
+DTEND:20260714T013500Z
+DTSTART:20260714T013000Z
+SUMMARY:【申购日】江农转债
+UID:110102-subscribe-2026-07-14@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/110102.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【中签结果公布】江农转债
+TRIGGER:PT1H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【中签结果公布】江农转债
+TRIGGER:PT3H30M
+END:VALARM
+DESCRIPTION:【中签结果公布】江农转债\n代码: 110102\n申购: 733389\n正股: 江山股份(600389)\n登记: 2026-07-13 | 配售: 2.751/股\n规模: 11.85亿 | 评级: AA+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/110102.html
+DTEND:20260716T013500Z
+DTSTART:20260716T013000Z
+SUMMARY:【中签结果公布】江农转债
+UID:110102-payment-2026-07-16@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/110102.html
 END:VEVENT
 END:VCALENDAR
