@@ -244,28 +244,28 @@ END:VEVENT
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】宝钛转债
+DESCRIPTION:【上市日】N宝钛转
 TRIGGER:-P1D
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】宝钛转债
+DESCRIPTION:【上市日】N宝钛转
 TRIGGER:-PT5M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】宝钛转债
+DESCRIPTION:【上市日】N宝钛转
 TRIGGER:PT1H30M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】宝钛转债
+DESCRIPTION:【上市日】N宝钛转
 TRIGGER:PT4H
 END:VALARM
-DESCRIPTION:【上市日】宝钛转债\n代码: 110101\n申购: 733456\n正股: 宝钛股份(600456)\n登记: 2026-06-23 | 配售: 7.447/股\n规模: 35亿 | 评级: AAA\n中签率: 0.008%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/110101.html
+DESCRIPTION:【上市日】N宝钛转\n代码: 110101\n申购: 733456\n正股: 宝钛股份(600456)\n登记: 2026-06-23 | 配售: 7.447/股\n规模: 35亿 | 评级: AAA\n中签率: 0.008%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/110101.html
 DTEND:20260716T013500Z
 DTSTART:20260716T013000Z
-SUMMARY:【上市日】宝钛转债
+SUMMARY:【上市日】N宝钛转
 UID:110101-list-2026-07-16@bond-calendar
 URL:https://data.eastmoney.com/kzz/detail/110101.html
 END:VEVENT
