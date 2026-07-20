@@ -4,24 +4,6 @@ PRODID:bond-calendar
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】肇民转债
-TRIGGER:PT1H
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】肇民转债
-TRIGGER:PT3H30M
-END:VALARM
-DESCRIPTION:【中签结果公布】肇民转债\n代码: 123275\n申购: 371000\n正股: 肇民科技(301000)\n登记: 2026-07-08 | 配售: 2.4257/股\n规模: 5.9亿 | 评级: AA-\n中签率: 0.0017%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123275.html
-DTEND:20260713T013500Z
-DTSTART:20260713T013000Z
-SUMMARY:【中签结果公布】肇民转债
-UID:123275-payment-2026-07-13@bond-calendar
-URL:https://data.eastmoney.com/kzz/detail/123275.html
-END:VEVENT
-BEGIN:VEVENT
-BEGIN:VALARM
-ACTION:DISPLAY
 DESCRIPTION:【上市日】宜化转债
 TRIGGER:-P1D
 END:VALARM
@@ -232,7 +214,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】久吾转02
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】久吾转02\n代码: 123276\n申购: 370631\n正股: 久吾高科(300631)\n登记: 2026-07-17 | 配售: 2.3993/股\n规模: 3亿 | 评级: A+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123276.html
+DESCRIPTION:【申购日】久吾转02\n代码: 123276\n申购: 370631\n正股: 久吾高科(300631)\n登记: 2026-07-17 | 配售: 2.3993/股\n规模: 3亿 | 评级: A+\n中签率: 0.0009%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123276.html
 DTEND:20260720T013500Z
 DTSTART:20260720T013000Z
 SUMMARY:【申购日】久吾转02
@@ -296,7 +278,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】久吾转02
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】久吾转02\n代码: 123276\n申购: 370631\n正股: 久吾高科(300631)\n登记: 2026-07-17 | 配售: 2.3993/股\n规模: 3亿 | 评级: A+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123276.html
+DESCRIPTION:【中签结果公布】久吾转02\n代码: 123276\n申购: 370631\n正股: 久吾高科(300631)\n登记: 2026-07-17 | 配售: 2.3993/股\n规模: 3亿 | 评级: A+\n中签率: 0.0009%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123276.html
 DTEND:20260722T013500Z
 DTSTART:20260722T013000Z
 SUMMARY:【中签结果公布】久吾转02
