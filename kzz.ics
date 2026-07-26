@@ -122,7 +122,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】炬申转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】炬申转债\n代码: 127115\n申购: 071202\n正股: 炬申股份(001202)\n登记: 2026-07-23 | 配售: 2.2911/股\n规模: 3.8亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127115.html
+DESCRIPTION:【申购日】炬申转债\n代码: 127115\n申购: 071202\n正股: 炬申股份(001202)\n登记: 2026-07-23 | 配售: 2.2911/股\n规模: 3.8亿 | 评级: AA-\n中签率: 0.0003%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127115.html
 DTEND:20260724T013500Z
 DTSTART:20260724T013000Z
 SUMMARY:【申购日】炬申转债
@@ -140,7 +140,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】申能转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】申能转债\n代码: 110103\n申购: 733642\n正股: 申能股份(600642)\n登记: 2026-07-23 | 配售: 0.408/股\n规模: 20亿 | 评级: AAA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/110103.html
+DESCRIPTION:【申购日】申能转债\n代码: 110103\n申购: 733642\n正股: 申能股份(600642)\n登记: 2026-07-23 | 配售: 0.408/股\n规模: 20亿 | 评级: AAA\n中签率: 0.0058%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/110103.html
 DTEND:20260724T013500Z
 DTSTART:20260724T013000Z
 SUMMARY:【申购日】申能转债
@@ -158,7 +158,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】炬申转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】炬申转债\n代码: 127115\n申购: 071202\n正股: 炬申股份(001202)\n登记: 2026-07-23 | 配售: 2.2911/股\n规模: 3.8亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127115.html
+DESCRIPTION:【中签结果公布】炬申转债\n代码: 127115\n申购: 071202\n正股: 炬申股份(001202)\n登记: 2026-07-23 | 配售: 2.2911/股\n规模: 3.8亿 | 评级: AA-\n中签率: 0.0003%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127115.html
 DTEND:20260728T013500Z
 DTSTART:20260728T013000Z
 SUMMARY:【中签结果公布】炬申转债
@@ -176,7 +176,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】申能转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】申能转债\n代码: 110103\n申购: 733642\n正股: 申能股份(600642)\n登记: 2026-07-23 | 配售: 0.408/股\n规模: 20亿 | 评级: AAA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/110103.html
+DESCRIPTION:【中签结果公布】申能转债\n代码: 110103\n申购: 733642\n正股: 申能股份(600642)\n登记: 2026-07-23 | 配售: 0.408/股\n规模: 20亿 | 评级: AAA\n中签率: 0.0058%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/110103.html
 DTEND:20260728T013500Z
 DTSTART:20260728T013000Z
 SUMMARY:【中签结果公布】申能转债
@@ -204,6 +204,42 @@ END:VEVENT
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
+DESCRIPTION:【申购日】奥普转债
+TRIGGER:PT30M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申购日】奥普转债
+TRIGGER:PT3H
+END:VALARM
+DESCRIPTION:【申购日】奥普转债\n代码: 118075\n申购: 718686\n正股: 奥普特(688686)\n登记: 2026-07-28 | 配售: 10.396/股\n规模: 12.7亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118075.html
+DTEND:20260729T013500Z
+DTSTART:20260729T013000Z
+SUMMARY:【申购日】奥普转债
+UID:118075-subscribe-2026-07-29@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/118075.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申购日】玉禾转债
+TRIGGER:PT30M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申购日】玉禾转债
+TRIGGER:PT3H
+END:VALARM
+DESCRIPTION:【申购日】玉禾转债\n代码: 123277\n申购: 370815\n正股: 玉禾田(300815)\n登记: 2026-07-28 | 配售: 3.7632/股\n规模: 15亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123277.html
+DTEND:20260729T013500Z
+DTSTART:20260729T013000Z
+SUMMARY:【申购日】玉禾转债
+UID:123277-subscribe-2026-07-29@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/123277.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】特宝转债
 TRIGGER:PT1H
 END:VALARM
@@ -218,5 +254,41 @@ DTSTART:20260730T013000Z
 SUMMARY:【中签结果公布】特宝转债
 UID:118074-payment-2026-07-30@bond-calendar
 URL:https://data.eastmoney.com/kzz/detail/118074.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【中签结果公布】奥普转债
+TRIGGER:PT1H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【中签结果公布】奥普转债
+TRIGGER:PT3H30M
+END:VALARM
+DESCRIPTION:【中签结果公布】奥普转债\n代码: 118075\n申购: 718686\n正股: 奥普特(688686)\n登记: 2026-07-28 | 配售: 10.396/股\n规模: 12.7亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118075.html
+DTEND:20260731T013500Z
+DTSTART:20260731T013000Z
+SUMMARY:【中签结果公布】奥普转债
+UID:118075-payment-2026-07-31@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/118075.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【中签结果公布】玉禾转债
+TRIGGER:PT1H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【中签结果公布】玉禾转债
+TRIGGER:PT3H30M
+END:VALARM
+DESCRIPTION:【中签结果公布】玉禾转债\n代码: 123277\n申购: 370815\n正股: 玉禾田(300815)\n登记: 2026-07-28 | 配售: 3.7632/股\n规模: 15亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123277.html
+DTEND:20260731T013500Z
+DTSTART:20260731T013000Z
+SUMMARY:【中签结果公布】玉禾转债
+UID:123277-payment-2026-07-31@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/123277.html
 END:VEVENT
 END:VCALENDAR
