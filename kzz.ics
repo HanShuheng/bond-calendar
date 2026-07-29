@@ -4,24 +4,6 @@ PRODID:bond-calendar
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】久吾转02
-TRIGGER:PT1H
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】久吾转02
-TRIGGER:PT3H30M
-END:VALARM
-DESCRIPTION:【中签结果公布】久吾转02\n代码: 123276\n申购: 370631\n正股: 久吾高科(300631)\n登记: 2026-07-17 | 配售: 2.3993/股\n规模: 3亿 | 评级: A+\n中签率: 0.0009%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123276.html
-DTEND:20260722T013500Z
-DTSTART:20260722T013000Z
-SUMMARY:【中签结果公布】久吾转02
-UID:123276-payment-2026-07-22@bond-calendar
-URL:https://data.eastmoney.com/kzz/detail/123276.html
-END:VEVENT
-BEGIN:VEVENT
-BEGIN:VALARM
-ACTION:DISPLAY
 DESCRIPTION:【上市日】肇民转债
 TRIGGER:-P1D
 END:VALARM
@@ -148,7 +130,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】奥普转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】奥普转债\n代码: 118075\n申购: 718686\n正股: 奥普特(688686)\n登记: 2026-07-28 | 配售: 10.396/股\n规模: 12.7亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118075.html
+DESCRIPTION:【申购日】奥普转债\n代码: 118075\n申购: 718686\n正股: 奥普特(688686)\n登记: 2026-07-28 | 配售: 10.396/股\n规模: 12.7亿 | 评级: AA\n中签率: 0.0015%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118075.html
 DTEND:20260729T013500Z
 DTSTART:20260729T013000Z
 SUMMARY:【申购日】奥普转债
@@ -166,7 +148,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】玉禾转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】玉禾转债\n代码: 123277\n申购: 370815\n正股: 玉禾田(300815)\n登记: 2026-07-28 | 配售: 3.7632/股\n规模: 15亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123277.html
+DESCRIPTION:【申购日】玉禾转债\n代码: 123277\n申购: 370815\n正股: 玉禾田(300815)\n登记: 2026-07-28 | 配售: 3.7632/股\n规模: 15亿 | 评级: AA\n中签率: 0.0025%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123277.html
 DTEND:20260729T013500Z
 DTSTART:20260729T013000Z
 SUMMARY:【申购日】玉禾转债
@@ -266,7 +248,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】奥普转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】奥普转债\n代码: 118075\n申购: 718686\n正股: 奥普特(688686)\n登记: 2026-07-28 | 配售: 10.396/股\n规模: 12.7亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118075.html
+DESCRIPTION:【中签结果公布】奥普转债\n代码: 118075\n申购: 718686\n正股: 奥普特(688686)\n登记: 2026-07-28 | 配售: 10.396/股\n规模: 12.7亿 | 评级: AA\n中签率: 0.0015%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118075.html
 DTEND:20260731T013500Z
 DTSTART:20260731T013000Z
 SUMMARY:【中签结果公布】奥普转债
@@ -284,7 +266,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】玉禾转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】玉禾转债\n代码: 123277\n申购: 370815\n正股: 玉禾田(300815)\n登记: 2026-07-28 | 配售: 3.7632/股\n规模: 15亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123277.html
+DESCRIPTION:【中签结果公布】玉禾转债\n代码: 123277\n申购: 370815\n正股: 玉禾田(300815)\n登记: 2026-07-28 | 配售: 3.7632/股\n规模: 15亿 | 评级: AA\n中签率: 0.0025%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123277.html
 DTEND:20260731T013500Z
 DTSTART:20260731T013000Z
 SUMMARY:【中签结果公布】玉禾转债
@@ -326,5 +308,41 @@ DTSTART:20260803T013000Z
 SUMMARY:【中签结果公布】振26转债
 UID:113709-payment-2026-08-03@bond-calendar
 URL:https://data.eastmoney.com/kzz/detail/113709.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申购日】天脉转债
+TRIGGER:PT30M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申购日】天脉转债
+TRIGGER:PT3H
+END:VALARM
+DESCRIPTION:【申购日】天脉转债\n代码: 123279\n申购: 371626\n正股: 苏州天脉(301626)\n登记: 2026-07-31 | 配售: 6.7946/股\n规模: 7.86亿\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123279.html
+DTEND:20260803T013500Z
+DTSTART:20260803T013000Z
+SUMMARY:【申购日】天脉转债
+UID:123279-subscribe-2026-08-03@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/123279.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【中签结果公布】天脉转债
+TRIGGER:PT1H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【中签结果公布】天脉转债
+TRIGGER:PT3H30M
+END:VALARM
+DESCRIPTION:【中签结果公布】天脉转债\n代码: 123279\n申购: 371626\n正股: 苏州天脉(301626)\n登记: 2026-07-31 | 配售: 6.7946/股\n规模: 7.86亿\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123279.html
+DTEND:20260805T013500Z
+DTSTART:20260805T013000Z
+SUMMARY:【中签结果公布】天脉转债
+UID:123279-payment-2026-08-05@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/123279.html
 END:VEVENT
 END:VCALENDAR
