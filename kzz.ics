@@ -184,7 +184,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】合金转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】合金转债\n代码: 123278\n申购: 370697\n正股: 电工合金(300697)\n登记: 2026-07-29 | 配售: 1.2597/股\n规模: 5.45亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123278.html
+DESCRIPTION:【申购日】合金转债\n代码: 123278\n申购: 370697\n正股: 电工合金(300697)\n登记: 2026-07-29 | 配售: 1.2597/股\n规模: 5.45亿 | 评级: AA-\n中签率: 0.0007%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123278.html
 DTEND:20260730T013500Z
 DTSTART:20260730T013000Z
 SUMMARY:【申购日】合金转债
@@ -202,7 +202,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】振26转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】振26转债\n代码: 113709\n申购: 754067\n正股: 振华股份(603067)\n登记: 2026-07-29 | 配售: 1.162/股\n规模: 8.78亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113709.html
+DESCRIPTION:【申购日】振26转债\n代码: 113709\n申购: 754067\n正股: 振华股份(603067)\n登记: 2026-07-29 | 配售: 1.162/股\n规模: 8.78亿 | 评级: AA\n中签率: 0.002%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113709.html
 DTEND:20260730T013500Z
 DTSTART:20260730T013000Z
 SUMMARY:【申购日】振26转债
@@ -284,7 +284,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】合金转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】合金转债\n代码: 123278\n申购: 370697\n正股: 电工合金(300697)\n登记: 2026-07-29 | 配售: 1.2597/股\n规模: 5.45亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123278.html
+DESCRIPTION:【中签结果公布】合金转债\n代码: 123278\n申购: 370697\n正股: 电工合金(300697)\n登记: 2026-07-29 | 配售: 1.2597/股\n规模: 5.45亿 | 评级: AA-\n中签率: 0.0007%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123278.html
 DTEND:20260803T013500Z
 DTSTART:20260803T013000Z
 SUMMARY:【中签结果公布】合金转债
@@ -302,7 +302,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】振26转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】振26转债\n代码: 113709\n申购: 754067\n正股: 振华股份(603067)\n登记: 2026-07-29 | 配售: 1.162/股\n规模: 8.78亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113709.html
+DESCRIPTION:【中签结果公布】振26转债\n代码: 113709\n申购: 754067\n正股: 振华股份(603067)\n登记: 2026-07-29 | 配售: 1.162/股\n规模: 8.78亿 | 评级: AA\n中签率: 0.002%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113709.html
 DTEND:20260803T013500Z
 DTSTART:20260803T013000Z
 SUMMARY:【中签结果公布】振26转债
@@ -330,6 +330,52 @@ END:VEVENT
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
+DESCRIPTION:【上市日】久吾转02
+TRIGGER:-P1D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【上市日】久吾转02
+TRIGGER:-PT5M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【上市日】久吾转02
+TRIGGER:PT1H30M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【上市日】久吾转02
+TRIGGER:PT4H
+END:VALARM
+DESCRIPTION:【上市日】久吾转02\n代码: 123276\n申购: 370631\n正股: 久吾高科(300631)\n登记: 2026-07-17 | 配售: 2.3993/股\n规模: 3亿 | 评级: A+\n中签率: 0.0009%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123276.html
+DTEND:20260804T013500Z
+DTSTART:20260804T013000Z
+SUMMARY:【上市日】久吾转02
+UID:123276-list-2026-08-04@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/123276.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申购日】三鑫转债
+TRIGGER:PT30M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申购日】三鑫转债
+TRIGGER:PT3H
+END:VALARM
+DESCRIPTION:【申购日】三鑫转债\n代码: 123280\n申购: 370453\n正股: 三鑫医疗(300453)\n登记: 2026-08-03 | 配售: 1.0154/股\n规模: 5.3亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123280.html
+DTEND:20260804T013500Z
+DTSTART:20260804T013000Z
+SUMMARY:【申购日】三鑫转债
+UID:123280-subscribe-2026-08-04@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/123280.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】天脉转债
 TRIGGER:PT1H
 END:VALARM
@@ -344,5 +390,23 @@ DTSTART:20260805T013000Z
 SUMMARY:【中签结果公布】天脉转债
 UID:123279-payment-2026-08-05@bond-calendar
 URL:https://data.eastmoney.com/kzz/detail/123279.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【中签结果公布】三鑫转债
+TRIGGER:PT1H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【中签结果公布】三鑫转债
+TRIGGER:PT3H30M
+END:VALARM
+DESCRIPTION:【中签结果公布】三鑫转债\n代码: 123280\n申购: 370453\n正股: 三鑫医疗(300453)\n登记: 2026-08-03 | 配售: 1.0154/股\n规模: 5.3亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123280.html
+DTEND:20260806T013500Z
+DTSTART:20260806T013000Z
+SUMMARY:【中签结果公布】三鑫转债
+UID:123280-payment-2026-08-06@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/123280.html
 END:VEVENT
 END:VCALENDAR
