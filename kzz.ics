@@ -320,7 +320,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】天脉转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】天脉转债\n代码: 123279\n申购: 371626\n正股: 苏州天脉(301626)\n登记: 2026-07-31 | 配售: 6.7946/股\n规模: 7.86亿\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123279.html
+DESCRIPTION:【申购日】天脉转债\n代码: 123279\n申购: 371626\n正股: 苏州天脉(301626)\n登记: 2026-07-31 | 配售: 6.7946/股\n规模: 7.86亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123279.html
 DTEND:20260803T013500Z
 DTSTART:20260803T013000Z
 SUMMARY:【申购日】天脉转债
@@ -338,7 +338,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】天脉转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】天脉转债\n代码: 123279\n申购: 371626\n正股: 苏州天脉(301626)\n登记: 2026-07-31 | 配售: 6.7946/股\n规模: 7.86亿\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123279.html
+DESCRIPTION:【中签结果公布】天脉转债\n代码: 123279\n申购: 371626\n正股: 苏州天脉(301626)\n登记: 2026-07-31 | 配售: 6.7946/股\n规模: 7.86亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123279.html
 DTEND:20260805T013500Z
 DTSTART:20260805T013000Z
 SUMMARY:【中签结果公布】天脉转债
