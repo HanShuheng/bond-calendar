@@ -4,60 +4,6 @@ PRODID:bond-calendar
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】炬申转债
-TRIGGER:PT1H
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】炬申转债
-TRIGGER:PT3H30M
-END:VALARM
-DESCRIPTION:【中签结果公布】炬申转债\n代码: 127115\n申购: 071202\n正股: 炬申股份(001202)\n登记: 2026-07-23 | 配售: 2.2911/股\n规模: 3.8亿 | 评级: AA-\n中签率: 0.0003%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127115.html
-DTEND:20260728T013500Z
-DTSTART:20260728T013000Z
-SUMMARY:【中签结果公布】炬申转债
-UID:127115-payment-2026-07-28@bond-calendar
-URL:https://data.eastmoney.com/kzz/detail/127115.html
-END:VEVENT
-BEGIN:VEVENT
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】申能转债
-TRIGGER:PT1H
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】申能转债
-TRIGGER:PT3H30M
-END:VALARM
-DESCRIPTION:【中签结果公布】申能转债\n代码: 110103\n申购: 733642\n正股: 申能股份(600642)\n登记: 2026-07-23 | 配售: 0.408/股\n规模: 20亿 | 评级: AAA\n中签率: 0.0058%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/110103.html
-DTEND:20260728T013500Z
-DTSTART:20260728T013000Z
-SUMMARY:【中签结果公布】申能转债
-UID:110103-payment-2026-07-28@bond-calendar
-URL:https://data.eastmoney.com/kzz/detail/110103.html
-END:VEVENT
-BEGIN:VEVENT
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【申购日】特宝转债
-TRIGGER:PT30M
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【申购日】特宝转债
-TRIGGER:PT3H
-END:VALARM
-DESCRIPTION:【申购日】特宝转债\n代码: 118074\n申购: 718278\n正股: 特宝生物(688278)\n登记: 2026-07-27 | 配售: 3.857/股\n规模: 15.33亿 | 评级: AA+sti\n中签率: 0.001%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118074.html
-DTEND:20260728T013500Z
-DTSTART:20260728T013000Z
-SUMMARY:【申购日】特宝转债
-UID:118074-subscribe-2026-07-28@bond-calendar
-URL:https://data.eastmoney.com/kzz/detail/118074.html
-END:VEVENT
-BEGIN:VEVENT
-BEGIN:VALARM
-ACTION:DISPLAY
 DESCRIPTION:【申购日】奥普转债
 TRIGGER:PT30M
 END:VALARM
@@ -302,7 +248,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】三鑫转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】三鑫转债\n代码: 123280\n申购: 370453\n正股: 三鑫医疗(300453)\n登记: 2026-08-03 | 配售: 1.0154/股\n规模: 5.3亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123280.html
+DESCRIPTION:【申购日】三鑫转债\n代码: 123280\n申购: 370453\n正股: 三鑫医疗(300453)\n登记: 2026-08-03 | 配售: 1.0154/股\n规模: 5.3亿 | 评级: AA-\n中签率: 0.0008%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123280.html
 DTEND:20260804T013500Z
 DTSTART:20260804T013000Z
 SUMMARY:【申购日】三鑫转债
@@ -394,7 +340,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】三鑫转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】三鑫转债\n代码: 123280\n申购: 370453\n正股: 三鑫医疗(300453)\n登记: 2026-08-03 | 配售: 1.0154/股\n规模: 5.3亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123280.html
+DESCRIPTION:【中签结果公布】三鑫转债\n代码: 123280\n申购: 370453\n正股: 三鑫医疗(300453)\n登记: 2026-08-03 | 配售: 1.0154/股\n规模: 5.3亿 | 评级: AA-\n中签率: 0.0008%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123280.html
 DTEND:20260806T013500Z
 DTSTART:20260806T013000Z
 SUMMARY:【中签结果公布】三鑫转债
