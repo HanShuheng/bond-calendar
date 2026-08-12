@@ -204,28 +204,28 @@ END:VEVENT
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】赛斯转债
+DESCRIPTION:【上市日】N赛斯转
 TRIGGER:-P1D
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】赛斯转债
+DESCRIPTION:【上市日】N赛斯转
 TRIGGER:-PT5M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】赛斯转债
+DESCRIPTION:【上市日】N赛斯转
 TRIGGER:PT1H30M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】赛斯转债
+DESCRIPTION:【上市日】N赛斯转
 TRIGGER:PT4H
 END:VALARM
-DESCRIPTION:【上市日】赛斯转债\n代码: 118073\n申购: 718480\n正股: 赛恩斯(688480)\n登记: 2026-07-16 | 配售: 5.789/股\n规模: 5.52亿 | 评级: AA\n中签率: 0.0011%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118073.html
+DESCRIPTION:【上市日】N赛斯转\n代码: 118073\n申购: 718480\n正股: 赛恩斯(688480)\n登记: 2026-07-16 | 配售: 5.789/股\n规模: 5.52亿 | 评级: AA\n中签率: 0.0011%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118073.html
 DTEND:20260812T013500Z
 DTSTART:20260812T013000Z
-SUMMARY:【上市日】赛斯转债
+SUMMARY:【上市日】N赛斯转
 UID:118073-list-2026-08-12@bond-calendar
 URL:https://data.eastmoney.com/kzz/detail/118073.html
 END:VEVENT
