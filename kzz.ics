@@ -254,7 +254,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】丰茂转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】丰茂转债\n代码: 123283\n申购: 371459\n正股: 丰茂股份(301459)\n登记: 2026-08-17 | 配售: 5.8347/股\n规模: 6.08亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123283.html
+DESCRIPTION:【申购日】丰茂转债\n代码: 123283\n申购: 371459\n正股: 丰茂股份(301459)\n登记: 2026-08-17 | 配售: 5.8347/股\n规模: 6.08亿 | 评级: AA-\n中签率: 0.0004%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123283.html
 DTEND:20260818T013500Z
 DTSTART:20260818T013000Z
 SUMMARY:【申购日】丰茂转债
@@ -364,7 +364,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】丰茂转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】丰茂转债\n代码: 123283\n申购: 371459\n正股: 丰茂股份(301459)\n登记: 2026-08-17 | 配售: 5.8347/股\n规模: 6.08亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123283.html
+DESCRIPTION:【中签结果公布】丰茂转债\n代码: 123283\n申购: 371459\n正股: 丰茂股份(301459)\n登记: 2026-08-17 | 配售: 5.8347/股\n规模: 6.08亿 | 评级: AA-\n中签率: 0.0004%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123283.html
 DTEND:20260820T013500Z
 DTSTART:20260820T013000Z
 SUMMARY:【中签结果公布】丰茂转债
