@@ -4,24 +4,6 @@ PRODID:bond-calendar
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】丰茂转债
-TRIGGER:PT1H
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】丰茂转债
-TRIGGER:PT3H30M
-END:VALARM
-DESCRIPTION:【中签结果公布】丰茂转债\n代码: 123283\n申购: 371459\n正股: 丰茂股份(301459)\n登记: 2026-08-17 | 配售: 5.8347/股\n规模: 6.08亿 | 评级: AA-\n中签率: 0.0004%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123283.html
-DTEND:20260820T013500Z
-DTSTART:20260820T013000Z
-SUMMARY:【中签结果公布】丰茂转债
-UID:123283-payment-2026-08-20@bond-calendar
-URL:https://data.eastmoney.com/kzz/detail/123283.html
-END:VEVENT
-BEGIN:VEVENT
-BEGIN:VALARM
-ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】强达转债
 TRIGGER:PT1H
 END:VALARM
