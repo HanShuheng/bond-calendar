@@ -68,7 +68,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】四方转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】四方转债\n代码: 113710\n申购: 754339\n正股: 四方科技(603339)\n登记: 2026-09-02 | 配售: 3.307/股\n规模: 10.23亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113710.html
+DESCRIPTION:【申购日】四方转债\n代码: 113710\n申购: 754339\n正股: 四方科技(603339)\n登记: 2026-09-02 | 配售: 3.307/股\n规模: 10.23亿 | 评级: AA\n中签率: 0.0014%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113710.html
 DTEND:20260903T013500Z
 DTSTART:20260903T013000Z
 SUMMARY:【申购日】四方转债
@@ -86,7 +86,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】四方转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】四方转债\n代码: 113710\n申购: 754339\n正股: 四方科技(603339)\n登记: 2026-09-02 | 配售: 3.307/股\n规模: 10.23亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113710.html
+DESCRIPTION:【中签结果公布】四方转债\n代码: 113710\n申购: 754339\n正股: 四方科技(603339)\n登记: 2026-09-02 | 配售: 3.307/股\n规模: 10.23亿 | 评级: AA\n中签率: 0.0014%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113710.html
 DTEND:20260907T013500Z
 DTSTART:20260907T013000Z
 SUMMARY:【中签结果公布】四方转债
