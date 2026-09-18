@@ -4,24 +4,6 @@ PRODID:bond-calendar
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【申购日】润禾转02
-TRIGGER:PT30M
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【申购日】润禾转02
-TRIGGER:PT3H
-END:VALARM
-DESCRIPTION:【申购日】润禾转02\n代码: 123285\n申购: 370727\n正股: 润禾材料(300727)\n登记: 2026-09-09 | 配售: 2.0539/股\n规模: 3.7亿 | 评级: A+\n中签率: 0.0008%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123285.html
-DTEND:20260910T013500Z
-DTSTART:20260910T013000Z
-SUMMARY:【申购日】润禾转02
-UID:123285-subscribe-2026-09-10@bond-calendar
-URL:https://data.eastmoney.com/kzz/detail/123285.html
-END:VEVENT
-BEGIN:VEVENT
-BEGIN:VALARM
-ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】润禾转02
 TRIGGER:PT1H
 END:VALARM
@@ -48,7 +30,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】瑞鹄转02
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】瑞鹄转02\n代码: 127116\n申购: 072997\n正股: 瑞鹄模具(002997)\n登记: 2026-09-16 | 配售: 3.2772/股\n规模: 6.86亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127116.html
+DESCRIPTION:【申购日】瑞鹄转02\n代码: 127116\n申购: 072997\n正股: 瑞鹄模具(002997)\n登记: 2026-09-16 | 配售: 3.2772/股\n规模: 6.86亿 | 评级: AA\n中签率: 0.0022%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127116.html
 DTEND:20260917T013500Z
 DTSTART:20260917T013000Z
 SUMMARY:【申购日】瑞鹄转02
@@ -66,7 +48,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】瑞鹄转02
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】瑞鹄转02\n代码: 127116\n申购: 072997\n正股: 瑞鹄模具(002997)\n登记: 2026-09-16 | 配售: 3.2772/股\n规模: 6.86亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127116.html
+DESCRIPTION:【中签结果公布】瑞鹄转02\n代码: 127116\n申购: 072997\n正股: 瑞鹄模具(002997)\n登记: 2026-09-16 | 配售: 3.2772/股\n规模: 6.86亿 | 评级: AA\n中签率: 0.0022%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127116.html
 DTEND:20260921T013500Z
 DTSTART:20260921T013000Z
 SUMMARY:【中签结果公布】瑞鹄转02
