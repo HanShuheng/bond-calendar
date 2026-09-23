@@ -40,28 +40,28 @@ END:VEVENT
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】四方转债
+DESCRIPTION:【上市日】N四方转
 TRIGGER:-P1D
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】四方转债
+DESCRIPTION:【上市日】N四方转
 TRIGGER:-PT5M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】四方转债
+DESCRIPTION:【上市日】N四方转
 TRIGGER:PT1H30M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】四方转债
+DESCRIPTION:【上市日】N四方转
 TRIGGER:PT4H
 END:VALARM
-DESCRIPTION:【上市日】四方转债\n代码: 113710\n申购: 754339\n正股: 四方科技(603339)\n登记: 2026-09-02 | 配售: 3.307/股\n规模: 10.23亿 | 评级: AA\n中签率: 0.0014%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113710.html
+DESCRIPTION:【上市日】N四方转\n代码: 113710\n申购: 754339\n正股: 四方科技(603339)\n登记: 2026-09-02 | 配售: 3.307/股\n规模: 10.23亿 | 评级: AA\n中签率: 0.0014%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113710.html
 DTEND:20260923T013500Z
 DTSTART:20260923T013000Z
-SUMMARY:【上市日】四方转债
+SUMMARY:【上市日】N四方转
 UID:113710-list-2026-09-23@bond-calendar
 URL:https://data.eastmoney.com/kzz/detail/113710.html
 END:VEVENT
