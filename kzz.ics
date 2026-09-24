@@ -40,28 +40,28 @@ END:VEVENT
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】N四方转
+DESCRIPTION:【上市日】四方转债
 TRIGGER:-P1D
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】N四方转
+DESCRIPTION:【上市日】四方转债
 TRIGGER:-PT5M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】N四方转
+DESCRIPTION:【上市日】四方转债
 TRIGGER:PT1H30M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】N四方转
+DESCRIPTION:【上市日】四方转债
 TRIGGER:PT4H
 END:VALARM
-DESCRIPTION:【上市日】N四方转\n代码: 113710\n申购: 754339\n正股: 四方科技(603339)\n登记: 2026-09-02 | 配售: 3.307/股\n规模: 10.23亿 | 评级: AA\n中签率: 0.0014%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113710.html
+DESCRIPTION:【上市日】四方转债\n代码: 113710\n申购: 754339\n正股: 四方科技(603339)\n登记: 2026-09-02 | 配售: 3.307/股\n规模: 10.23亿 | 评级: AA\n中签率: 0.0014%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113710.html
 DTEND:20260923T013500Z
 DTSTART:20260923T013000Z
-SUMMARY:【上市日】N四方转
+SUMMARY:【上市日】四方转债
 UID:113710-list-2026-09-23@bond-calendar
 URL:https://data.eastmoney.com/kzz/detail/113710.html
 END:VEVENT
@@ -76,7 +76,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】国科转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】国科转债\n代码: 123286\n申购: 371571\n正股: 国科天成(301571)\n登记: 2026-09-22 | 配售: 4.7306/股\n规模: 8.49亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123286.html
+DESCRIPTION:【申购日】国科转债\n代码: 123286\n申购: 371571\n正股: 国科天成(301571)\n登记: 2026-09-22 | 配售: 4.7306/股\n规模: 8.49亿 | 评级: AA-\n中签率: 0.0029%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123286.html
 DTEND:20260923T013500Z
 DTSTART:20260923T013000Z
 SUMMARY:【申购日】国科转债
@@ -94,7 +94,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】奥士转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】奥士转债\n代码: 127117\n申购: 072913\n正股: 奥士康(002913)\n登记: 2026-09-22 | 配售: 3.2104/股\n规模: 10亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127117.html
+DESCRIPTION:【申购日】奥士转债\n代码: 127117\n申购: 072913\n正股: 奥士康(002913)\n登记: 2026-09-22 | 配售: 3.2104/股\n规模: 10亿 | 评级: AA\n中签率: 0.0013%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127117.html
 DTEND:20260923T013500Z
 DTSTART:20260923T013000Z
 SUMMARY:【申购日】奥士转债
@@ -112,7 +112,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】国科转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】国科转债\n代码: 123286\n申购: 371571\n正股: 国科天成(301571)\n登记: 2026-09-22 | 配售: 4.7306/股\n规模: 8.49亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123286.html
+DESCRIPTION:【中签结果公布】国科转债\n代码: 123286\n申购: 371571\n正股: 国科天成(301571)\n登记: 2026-09-22 | 配售: 4.7306/股\n规模: 8.49亿 | 评级: AA-\n中签率: 0.0029%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123286.html
 DTEND:20260928T013500Z
 DTSTART:20260928T013000Z
 SUMMARY:【中签结果公布】国科转债
@@ -130,7 +130,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】奥士转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】奥士转债\n代码: 127117\n申购: 072913\n正股: 奥士康(002913)\n登记: 2026-09-22 | 配售: 3.2104/股\n规模: 10亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127117.html
+DESCRIPTION:【中签结果公布】奥士转债\n代码: 127117\n申购: 072913\n正股: 奥士康(002913)\n登记: 2026-09-22 | 配售: 3.2104/股\n规模: 10亿 | 评级: AA\n中签率: 0.0013%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127117.html
 DTEND:20260928T013500Z
 DTSTART:20260928T013000Z
 SUMMARY:【中签结果公布】奥士转债
@@ -204,6 +204,42 @@ END:VEVENT
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
+DESCRIPTION:【申购日】莱特转债
+TRIGGER:PT30M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申购日】莱特转债
+TRIGGER:PT3H
+END:VALARM
+DESCRIPTION:【申购日】莱特转债\n代码: 118077\n申购: 718150\n正股: 莱特光电(688150)\n登记: 2026-09-28 | 配售: 1.313/股\n规模: 5.25亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118077.html
+DTEND:20260929T013500Z
+DTSTART:20260929T013000Z
+SUMMARY:【申购日】莱特转债
+UID:118077-subscribe-2026-09-29@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/118077.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申购日】隆新转债
+TRIGGER:PT30M
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【申购日】隆新转债
+TRIGGER:PT3H
+END:VALARM
+DESCRIPTION:【申购日】隆新转债\n代码: 123288\n申购: 371149\n正股: 隆华新材(301149)\n登记: 2026-09-28 | 配售: 1.7173/股\n规模: 9.6亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123288.html
+DTEND:20260929T013500Z
+DTSTART:20260929T013000Z
+SUMMARY:【申购日】隆新转债
+UID:123288-subscribe-2026-09-29@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/123288.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】常青转债
 TRIGGER:PT1H
 END:VALARM
@@ -236,5 +272,41 @@ DTSTART:20260930T013000Z
 SUMMARY:【中签结果公布】满坤转债
 UID:123287-payment-2026-09-30@bond-calendar
 URL:https://data.eastmoney.com/kzz/detail/123287.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【中签结果公布】莱特转债
+TRIGGER:PT1H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【中签结果公布】莱特转债
+TRIGGER:PT3H30M
+END:VALARM
+DESCRIPTION:【中签结果公布】莱特转债\n代码: 118077\n申购: 718150\n正股: 莱特光电(688150)\n登记: 2026-09-28 | 配售: 1.313/股\n规模: 5.25亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118077.html
+DTEND:20261008T013500Z
+DTSTART:20261008T013000Z
+SUMMARY:【中签结果公布】莱特转债
+UID:118077-payment-2026-10-08@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/118077.html
+END:VEVENT
+BEGIN:VEVENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【中签结果公布】隆新转债
+TRIGGER:PT1H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:【中签结果公布】隆新转债
+TRIGGER:PT3H30M
+END:VALARM
+DESCRIPTION:【中签结果公布】隆新转债\n代码: 123288\n申购: 371149\n正股: 隆华新材(301149)\n登记: 2026-09-28 | 配售: 1.7173/股\n规模: 9.6亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123288.html
+DTEND:20261008T013500Z
+DTSTART:20261008T013000Z
+SUMMARY:【中签结果公布】隆新转债
+UID:123288-payment-2026-10-08@bond-calendar
+URL:https://data.eastmoney.com/kzz/detail/123288.html
 END:VEVENT
 END:VCALENDAR
