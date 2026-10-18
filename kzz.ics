@@ -58,7 +58,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】中科转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】中科转债\n代码: 123289\n申购: 371175\n正股: 中科环保(301175)\n登记: 2026-10-15 | 配售: 0.6794/股\n规模: 10亿 | 评级: AA+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123289.html
+DESCRIPTION:【申购日】中科转债\n代码: 123289\n申购: 371175\n正股: 中科环保(301175)\n登记: 2026-10-15 | 配售: 0.6794/股\n规模: 10亿 | 评级: AA+\n中签率: 0.0019%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123289.html
 DTEND:20261016T013500Z
 DTSTART:20261016T013000Z
 SUMMARY:【申购日】中科转债
@@ -178,7 +178,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】中科转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】中科转债\n代码: 123289\n申购: 371175\n正股: 中科环保(301175)\n登记: 2026-10-15 | 配售: 0.6794/股\n规模: 10亿 | 评级: AA+\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123289.html
+DESCRIPTION:【中签结果公布】中科转债\n代码: 123289\n申购: 371175\n正股: 中科环保(301175)\n登记: 2026-10-15 | 配售: 0.6794/股\n规模: 10亿 | 评级: AA+\n中签率: 0.0019%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123289.html
 DTEND:20261020T013500Z
 DTSTART:20261020T013000Z
 SUMMARY:【中签结果公布】中科转债
