@@ -242,7 +242,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】航亚转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】航亚转债\n代码: 118078\n申购: 718510\n正股: 航亚科技(688510)\n登记: 2026-10-20 | 配售: 2.308/股\n规模: 6亿 | 评级: AAsti\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118078.html
+DESCRIPTION:【申购日】航亚转债\n代码: 118078\n申购: 718510\n正股: 航亚科技(688510)\n登记: 2026-10-20 | 配售: 2.308/股\n规模: 6亿 | 评级: AAsti\n中签率: 0.0016%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118078.html
 DTEND:20261021T013500Z
 DTSTART:20261021T013000Z
 SUMMARY:【申购日】航亚转债
@@ -324,7 +324,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】航亚转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】航亚转债\n代码: 118078\n申购: 718510\n正股: 航亚科技(688510)\n登记: 2026-10-20 | 配售: 2.308/股\n规模: 6亿 | 评级: AAsti\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118078.html
+DESCRIPTION:【中签结果公布】航亚转债\n代码: 118078\n申购: 718510\n正股: 航亚科技(688510)\n登记: 2026-10-20 | 配售: 2.308/股\n规模: 6亿 | 评级: AAsti\n中签率: 0.0016%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118078.html
 DTEND:20261023T013500Z
 DTSTART:20261023T013000Z
 SUMMARY:【中签结果公布】航亚转债
