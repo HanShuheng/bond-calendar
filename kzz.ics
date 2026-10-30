@@ -4,42 +4,6 @@ PRODID:bond-calendar
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】申菱转债
-TRIGGER:PT1H
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】申菱转债
-TRIGGER:PT3H30M
-END:VALARM
-DESCRIPTION:【中签结果公布】申菱转债\n代码: 123290\n申购: 371018\n正股: 申菱环境(301018)\n登记: 2026-10-19 | 配售: 2.6717/股\n规模: 10亿 | 评级: AA\n中签率: 0.0032%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123290.html
-DTEND:20261022T013500Z
-DTSTART:20261022T013000Z
-SUMMARY:【中签结果公布】申菱转债
-UID:123290-payment-2026-10-22@bond-calendar
-URL:https://data.eastmoney.com/kzz/detail/123290.html
-END:VEVENT
-BEGIN:VEVENT
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【申购日】中鼎转03
-TRIGGER:PT30M
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【申购日】中鼎转03
-TRIGGER:PT3H
-END:VALARM
-DESCRIPTION:【申购日】中鼎转03\n代码: 127119\n申购: 070887\n正股: 中鼎股份(000887)\n登记: 2026-10-21 | 配售: 1.4584/股\n规模: 19.2亿 | 评级: AA+\n中签率: 0.0052%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/127119.html
-DTEND:20261022T013500Z
-DTSTART:20261022T013000Z
-SUMMARY:【申购日】中鼎转03
-UID:127119-subscribe-2026-10-22@bond-calendar
-URL:https://data.eastmoney.com/kzz/detail/127119.html
-END:VEVENT
-BEGIN:VEVENT
-BEGIN:VALARM
-ACTION:DISPLAY
 DESCRIPTION:【上市日】常青转债
 TRIGGER:-P1D
 END:VALARM
@@ -176,7 +140,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】佐力转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】佐力转债\n代码: 123291\n申购: 370181\n正股: 佐力药业(300181)\n登记: 2026-10-28 | 配售: 1.9704/股\n规模: 13.71亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123291.html
+DESCRIPTION:【申购日】佐力转债\n代码: 123291\n申购: 370181\n正股: 佐力药业(300181)\n登记: 2026-10-28 | 配售: 1.9704/股\n规模: 13.71亿 | 评级: AA\n中签率: 0.0039%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123291.html
 DTEND:20261029T013500Z
 DTSTART:20261029T013000Z
 SUMMARY:【申购日】佐力转债
@@ -222,7 +186,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】佐力转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】佐力转债\n代码: 123291\n申购: 370181\n正股: 佐力药业(300181)\n登记: 2026-10-28 | 配售: 1.9704/股\n规模: 13.71亿 | 评级: AA\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123291.html
+DESCRIPTION:【中签结果公布】佐力转债\n代码: 123291\n申购: 370181\n正股: 佐力药业(300181)\n登记: 2026-10-28 | 配售: 1.9704/股\n规模: 13.71亿 | 评级: AA\n中签率: 0.0039%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/123291.html
 DTEND:20261102T013500Z
 DTSTART:20261102T013000Z
 SUMMARY:【中签结果公布】佐力转债
