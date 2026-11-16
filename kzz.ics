@@ -88,28 +88,28 @@ END:VEVENT
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】航亚转债
+DESCRIPTION:【上市日】N航亚转
 TRIGGER:-P1D
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】航亚转债
+DESCRIPTION:【上市日】N航亚转
 TRIGGER:-PT5M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】航亚转债
+DESCRIPTION:【上市日】N航亚转
 TRIGGER:PT1H30M
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【上市日】航亚转债
+DESCRIPTION:【上市日】N航亚转
 TRIGGER:PT4H
 END:VALARM
-DESCRIPTION:【上市日】航亚转债\n代码: 118078\n申购: 718510\n正股: 航亚科技(688510)\n登记: 2026-10-20 | 配售: 2.308/股\n规模: 6亿 | 评级: AAsti\n中签率: 0.0016%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118078.html
+DESCRIPTION:【上市日】N航亚转\n代码: 118078\n申购: 718510\n正股: 航亚科技(688510)\n登记: 2026-10-20 | 配售: 2.308/股\n规模: 6亿 | 评级: AAsti\n中签率: 0.0016%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/118078.html
 DTEND:20261116T013500Z
 DTSTART:20261116T013000Z
-SUMMARY:【上市日】航亚转债
+SUMMARY:【上市日】N航亚转
 UID:118078-list-2026-11-16@bond-calendar
 URL:https://data.eastmoney.com/kzz/detail/118078.html
 END:VEVENT
