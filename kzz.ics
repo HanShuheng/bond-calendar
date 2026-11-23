@@ -76,7 +76,7 @@ ACTION:DISPLAY
 DESCRIPTION:【申购日】圣晖转债
 TRIGGER:PT3H
 END:VALARM
-DESCRIPTION:【申购日】圣晖转债\n代码: 113712\n申购: 754163\n正股: 圣晖集成(603163)\n登记: 2026-11-20 | 配售: 5.5/股\n规模: 5.5亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113712.html
+DESCRIPTION:【申购日】圣晖转债\n代码: 113712\n申购: 754163\n正股: 圣晖集成(603163)\n登记: 2026-11-20 | 配售: 5.5/股\n规模: 5.5亿 | 评级: AA-\n中签率: 0.0009%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113712.html
 DTEND:20261123T013500Z
 DTSTART:20261123T013000Z
 SUMMARY:【申购日】圣晖转债
@@ -94,7 +94,7 @@ ACTION:DISPLAY
 DESCRIPTION:【中签结果公布】圣晖转债
 TRIGGER:PT3H30M
 END:VALARM
-DESCRIPTION:【中签结果公布】圣晖转债\n代码: 113712\n申购: 754163\n正股: 圣晖集成(603163)\n登记: 2026-11-20 | 配售: 5.5/股\n规模: 5.5亿 | 评级: AA-\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113712.html
+DESCRIPTION:【中签结果公布】圣晖转债\n代码: 113712\n申购: 754163\n正股: 圣晖集成(603163)\n登记: 2026-11-20 | 配售: 5.5/股\n规模: 5.5亿 | 评级: AA-\n中签率: 0.0009%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/113712.html
 DTEND:20261125T013500Z
 DTSTART:20261125T013000Z
 SUMMARY:【中签结果公布】圣晖转债
