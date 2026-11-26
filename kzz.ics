@@ -4,24 +4,6 @@ PRODID:bond-calendar
 BEGIN:VEVENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】百龙转债
-TRIGGER:PT1H
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:【中签结果公布】百龙转债
-TRIGGER:PT3H30M
-END:VALARM
-DESCRIPTION:【中签结果公布】百龙转债\n代码: 111027\n申购: 713016\n正股: 百龙创园(605016)\n登记: 2026-11-13 | 配售: 1.781/股\n规模: 7.48亿 | 评级: AA\n中签率: 0.0024%\n来源: 东方财富\n详情: https://data.eastmoney.com/kzz/detail/111027.html
-DTEND:20261118T013500Z
-DTSTART:20261118T013000Z
-SUMMARY:【中签结果公布】百龙转债
-UID:111027-payment-2026-11-18@bond-calendar
-URL:https://data.eastmoney.com/kzz/detail/111027.html
-END:VEVENT
-BEGIN:VEVENT
-BEGIN:VALARM
-ACTION:DISPLAY
 DESCRIPTION:【申购日】圣晖转债
 TRIGGER:PT30M
 END:VALARM
